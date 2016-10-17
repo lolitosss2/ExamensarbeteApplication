@@ -4,14 +4,37 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="db.hfad.com.healthapplication.MainActivity">
 
-    <TextView
+
+    <Button
+        android:text="@string/sign_up_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/create_account_btn"
+        android:layout_marginTop="75dp"
+        android:layout_below="@+id/appname_textview"
+        android:layout_toRightOf="@+id/appname_textview"
+        android:layout_toEndOf="@+id/appname_textview" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/log_in_btn"
+        android:text="@string/log_in_btn"
+        android:layout_alignBaseline="@+id/create_account_btn"
+        android:layout_alignBottom="@+id/create_account_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="67dp"
+        android:layout_marginStart="67dp" />
+
+    <TextView
+        android:text="@string/healthapp_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/appname_textview"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp" />
 </RelativeLayout>
