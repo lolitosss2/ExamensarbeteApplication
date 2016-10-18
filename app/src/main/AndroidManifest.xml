@@ -19,6 +19,7 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".HealthApp"></activity>
+        <activity android:name=".UserProfile"></activity>
     </application>
 
 </manifest>
