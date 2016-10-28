@@ -4,30 +4,9 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="db.hfad.com.healthapplication.MainActivity">
+    tools:context="db.hfad.com.healthapplication.MainActivity"
+    android:background="@color/background">
 
-
-    <Button
-        android:text="@string/sign_up_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/create_account_btn"
-        android:layout_marginTop="75dp"
-        android:layout_below="@+id/appname_textview"
-        android:layout_toRightOf="@+id/appname_textview"
-        android:layout_toEndOf="@+id/appname_textview" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/log_in_btn"
-        android:text="@string/log_in_btn"
-        android:layout_alignBaseline="@+id/create_account_btn"
-        android:layout_alignBottom="@+id/create_account_btn"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="67dp"
-        android:layout_marginStart="67dp" />
 
     <TextView
         android:text="@string/healthapp_textview"
@@ -37,4 +16,33 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp" />
+
+    <Button
+        android:text="@string/sign_up_btn"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:id="@+id/create_account_btn"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/log_in_btn"
+        android:layout_alignLeft="@+id/log_in_btn"
+        android:layout_alignStart="@+id/log_in_btn"
+        android:background="@drawable/button"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/log_in_btn"
+        android:text="@string/log_in_btn"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/button"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/appname_textview"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

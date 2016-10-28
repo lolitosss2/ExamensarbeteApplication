@@ -3,14 +3,12 @@
     <string name="healthapp_textview">HealthApp</string>
     <string name="log_in_btn">Login</string>
     <string name="sign_up_btn">Sign up</string>
-    <string name="write_your_email_edittext">Write your email...</string>
-    <string name="write_your_password_edittext">Write your password...</string>
     <string name="login_enter_button">Login</string >
     <string name="write_your_name_register_edittext">Write your name...</string>
     <string name="write_your_email_register_edittext">Write your email...</string>
     <string name="write_your_password_register_edittext">Write your password...</string>
     <string name="sign_up_register_btn">Sign up</string>
-    <string name="hej_textview">Hej</string>
+    <string name="hej_textview">Welcome</string>
     <string name="add_post">Add Post</string>
     <string name="calender">Calender</string>
     <string name="help">Help</string>
