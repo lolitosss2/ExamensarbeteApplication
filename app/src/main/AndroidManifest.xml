@@ -20,6 +20,9 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".HealthApp"></activity>
         <activity android:name=".UserProfile"></activity>
+        <activity android:name=".EmergencyActivity"></activity>
+        <activity android:name=".EnterValuesActivity"></activity>
+        <activity android:name=".SelfHarmActivity"></activity>
     </application>
 
 </manifest>

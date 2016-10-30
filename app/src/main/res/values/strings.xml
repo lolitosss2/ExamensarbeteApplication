@@ -23,6 +23,7 @@
     <string name="write_your_age_edittext_profile">Write your age...</string>
     <string name="gender_textview">Gender:</string>
     <string name="done_btn">Done</string>
+    <string name="entry">Entry</string>
     <string-array name="gender_edittext">
         <item>Female</item>
         <item>Male</item>
