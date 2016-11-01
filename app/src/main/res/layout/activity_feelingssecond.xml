@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <TextView
+        android:text="@string/entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEntryField"
+        android:textSize="48sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textViewCurrentDateField"
+        android:textColor="@color/text"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textViewEntryField"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textViewFeelings"
+        android:text="Feelings"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_below="@+id/textViewCurrentDateField"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Loneliness:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:id="@+id/textViewLoneliness"
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_below="@+id/textViewFeelings"
+        android:layout_toLeftOf="@+id/textViewEntryField"
+        android:layout_toStartOf="@+id/textViewEntryField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textViewLonelinessPer"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_below="@+id/seekBarLonelinessField"
+        android:layout_alignRight="@+id/seekBarLonelinessField"
+        android:layout_alignEnd="@+id/seekBarLonelinessField"/>
+
+    <TextView
+        android:text="Anger:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewLonelinessPer"
+        android:layout_alignLeft="@+id/textViewLoneliness"
+        android:layout_alignStart="@+id/textViewLoneliness"
+        android:id="@+id/textViewAnger"
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <SeekBar
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAnger"
+        android:layout_alignLeft="@+id/seekBarLonelinessField"
+        android:layout_alignStart="@+id/seekBarLonelinessField"
+        android:id="@+id/seekBarAngerField"
+        android:max="100"
+        android:thumb="@drawable/thumb"
+        android:minHeight="6dip"
+        android:maxHeight="6dip"
+        android:progressDrawable="@drawable/custom_progress"
+        android:paddingStart="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekBarAngerField"
+        android:layout_alignRight="@+id/textViewLonelinessPer"
+        android:layout_alignEnd="@+id/textViewLonelinessPer"
+        android:id="@+id/textViewAngerPer"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <SeekBar
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSelfRespect"
+        android:layout_alignLeft="@+id/seekBarAngerField"
+        android:layout_alignStart="@+id/seekBarAngerField"
+        android:id="@+id/seekBarSelfRespectField"
+        android:max="100"
+        android:thumb="@drawable/thumb"
+        android:minHeight="6dip"
+        android:maxHeight="6dip"
+        android:progressDrawable="@drawable/custom_progress"
+        android:paddingStart="25dp"/>
+
+    <TextView
+        android:text="Self-respect:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewSelfRespect"
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_below="@+id/textViewAngerPer"
+        android:layout_alignLeft="@+id/textViewAnger"
+        android:layout_alignStart="@+id/textViewAnger" />
+
+    <SeekBar
+        android:id="@+id/seekBarLonelinessField"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:thumb="@drawable/thumb"
+        android:minHeight="6dip"
+        android:maxHeight="6dip"
+        android:progressDrawable="@drawable/custom_progress"
+        android:layout_width="350dp"
+        android:paddingStart="25dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_below="@+id/textViewLoneliness"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekBarSelfRespectField"
+        android:layout_alignRight="@+id/textViewAngerPer"
+        android:layout_alignEnd="@+id/textViewAngerPer"
+        android:id="@+id/textViewSelfRespectPer"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:id="@+id/buttonNext3"
+        android:background="@drawable/buttonnext"
+        android:rotation="270"
+        android:layout_width="70dp"
+        android:layout_height="60dp" />
+
+
+</RelativeLayout>
