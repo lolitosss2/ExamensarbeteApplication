@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <Button
+        android:text="Your Strategies"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="199dp"
+        android:id="@+id/buttonStrategiesField"
+        android:background="@drawable/button"
+        android:layout_width="280dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"/>
+
+    <Button
+        android:text="Call 911"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="22dp"
+        android:id="@+id/buttonCall911Field"
+        android:background="@drawable/buttonemergency"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/buttonTherapistField"
+        android:layout_alignLeft="@+id/buttonTherapistField"
+        android:layout_alignStart="@+id/buttonTherapistField" />
+
+    <Button
+        android:text="Contact Therapist"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:id="@+id/buttonTherapistField"
+        android:background="@drawable/button"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:layout_below="@+id/buttonStrategiesField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp" />
+</RelativeLayout>

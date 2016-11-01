@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+
+    <TextView
+        android:text="@string/entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEntryField"
+        android:textSize="48sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textViewCurrentDateField"
+        android:textColor="@color/text"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textViewEntryField"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textViewDrugsandAlcohol"
+        android:text="Drugs and Alcohol"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_below="@+id/textViewCurrentDateField"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Alcohol, quantity:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDrugsandAlcohol"
+        android:layout_toLeftOf="@+id/textViewDrugsandAlcohol"
+        android:layout_toStartOf="@+id/textViewDrugsandAlcohol"
+        android:layout_marginTop="82dp"
+        android:id="@+id/textViewAlcoholQuantity" />
+
+
+</RelativeLayout>
