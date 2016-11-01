@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <item android:id="@+id/action_next"
+        android:icon="@drawable/nextbutton"
+        android:title="@string/add_post"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_home"
+        android:icon="@drawable/homee"
+        android:title="@string/add_post"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/settings"
+        app:showAsAction="never"
+       >
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+        <item android:id="@+id/action_profile"
+            android:title="Profile"
+            app:showAsAction="never" />
+
+        <item android:id="@+id/action_appSettings"
+            android:title="AppTheme"
+            app:showAsAction="never" />
+    </menu>
+    </item>
+
+    <item android:id="@+id/action_logout"
+        android:title="@string/log_out"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_help"
+        android:title="@string/help"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_calender"
+        android:title="@string/calender"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_statistics"
+        android:title="@string/statistics"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_sendEmail"
+        android:title="@string/send_email"
+        app:showAsAction="never" />
+</menu>
