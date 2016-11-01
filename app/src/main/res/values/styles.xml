@@ -8,6 +8,7 @@
         <item name="colorPrimary">#BDD1D9</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
     <!-- Styles -->
     <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">

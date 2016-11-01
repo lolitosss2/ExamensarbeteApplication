@@ -23,6 +23,9 @@
         <activity android:name=".EmergencyActivity"></activity>
         <activity android:name=".EnterValuesActivity"></activity>
         <activity android:name=".SelfHarmActivity"></activity>
+        <activity android:name=".FeelingsActivity"></activity>
+        <activity android:name=".FeelingsSecondActivity"></activity>
+        <activity android:name=".DrugsandAlcoholActivity"></activity>
     </application>
 
 </manifest>
