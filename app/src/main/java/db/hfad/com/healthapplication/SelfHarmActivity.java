@@ -127,6 +127,8 @@ public class SelfHarmActivity extends AppCompatActivity {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.healthapp_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_next);
+        item.setVisible(false);
         return true;
     }
     /*
@@ -136,8 +138,8 @@ public class SelfHarmActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_next:
-                nextPage();
+            case R.id.action_previous:
+                previousPage();
                 return true;
             case R.id.action_home:
                 homePage();
@@ -171,8 +173,8 @@ public class SelfHarmActivity extends AppCompatActivity {
         }
     }
 
-    private void nextPage() {
-        startActivity(new Intent(SelfHarmActivity.this, FeelingsActivity.class));
+    private void previousPage() {
+        startActivity(new Intent(SelfHarmActivity.this, EnterValuesActivity.class));
     }
 
     private void homePage() {

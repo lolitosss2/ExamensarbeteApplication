@@ -119,6 +119,12 @@ public class HealthApp extends AppCompatActivity {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.healthapp_menu, menu);
+       MenuItem item = menu.findItem(R.id.action_previous);
+       item.setVisible(false);
+       MenuItem item2 = menu.findItem(R.id.action_next);
+       item2.setVisible(false);
+       MenuItem item1 = menu.findItem(R.id.action_home);
+       item1.setVisible(false);
         return true;
     }
     /*
