@@ -3,115 +3,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/background">
-
-    <TextView
-        android:text="@string/profile_settings"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
-        android:id="@+id/profileField"
-        android:layout_alignParentLeft="false"
-        tools:ignore="RtlHardcoded"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text"/>
-
-    <TextView
-        android:text="@string/name_user_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/profileField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp"
-        android:id="@+id/UserNameField"
-        android:textColor="@color/text"
-        android:textStyle="normal|bold"
-        android:textSize="24sp"/>
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="@string/profile_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:id="@+id/profileField"
+                tools:ignore="RtlHardcoded"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:textAlignment="center" />
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/profileField"
-        android:layout_toRightOf="@+id/UserNameField"
-        android:layout_toEndOf="@+id/UserNameField"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/userNameFieldEditText"
-        android:background="@drawable/edittextborder"
-        android:paddingLeft="20dp"
-        android:textColor="@color/text"
-        android:textColorHint="@color/text"
-        android:textColorLink="@color/text" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="57dp" />
 
-    <TextView
-        android:text="@string/age_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userNameFieldEditText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp"
-        android:id="@+id/AgeField"
-        android:textColor="@color/text"
-        android:textStyle="normal|bold"
-        android:textSize="24sp"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp">
 
-    <EditText
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_alignTop="@+id/AgeField"
-        android:layout_alignLeft="@+id/userNameFieldEditText"
-        android:layout_alignStart="@+id/userNameFieldEditText"
-        android:id="@+id/AgeFieldEditText"
-        android:background="@drawable/edittextborder"
-        android:paddingLeft="20dp"
-        android:textColor="@color/text"
-        android:textColorHint="@color/text"
-        android:textColorLink="@color/text" />
+                <TextView
+                    android:text="@string/name_user_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/UserNameField"
+                    android:textColor="@color/text"
+                    android:textStyle="normal|bold"
+                    android:textSize="24sp" />
 
-    <TextView
-        android:text="@string/gender_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/AgeFieldEditText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="22dp"
-        android:id="@+id/GenderField"
-        android:textColor="@color/text"
-        android:textStyle="normal|bold"
-        android:textSize="24sp"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/userNameFieldEditText"
+                    android:background="@drawable/edittextborder"
+                    android:textColor="@color/text"
+                    android:textColorHint="@color/text"
+                    android:textColorLink="@color/text"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"/>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/GenderField"
-        android:layout_alignLeft="@+id/AgeFieldEditText"
-        android:layout_alignStart="@+id/AgeFieldEditText"
-        android:id="@+id/GenderSpinnerField"
-        android:layout_alignRight="@+id/AgeFieldEditText"
-        android:layout_alignEnd="@+id/AgeFieldEditText" />
+            </LinearLayout>
 
-    <Button
-        android:text="@string/done_btn"
-        android:layout_height="60dp"
-        android:layout_below="@+id/GenderSpinnerField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:id="@+id/DoneBtnField"
-        android:background="@drawable/button"
-        android:layout_width="200dp"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal|bold"
-        android:textSize="20sp"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp">
+
+                <TextView
+                    android:text="@string/age_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AgeField"
+                    android:textColor="@color/text"
+                    android:textStyle="normal|bold"
+                    android:textSize="24sp"
+                    android:layout_weight="0.00"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginEnd="20dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/AgeFieldEditText"
+                    android:background="@drawable/edittextborder"
+                    android:textColor="@color/text"
+                    android:textColorHint="@color/text"
+                    android:textColorLink="@color/text"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"/>
+
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:text="@string/gender_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/GenderField"
+                    android:textColor="@color/text"
+                    android:textStyle="normal|bold"
+                    android:textSize="24sp" />
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/GenderSpinnerField"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginRight="30dp"/>
+
+
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:text="@string/done_btn"
+                    android:layout_height="60dp"
+                    android:id="@+id/DoneBtnField"
+                    android:background="@drawable/button"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="30dp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
