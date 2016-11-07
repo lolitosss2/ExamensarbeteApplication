@@ -57,7 +57,7 @@ public class RootActivity extends Activity{
 
 
 
-        DatabaseReference myRef2 = database.getReference("EnterValues").child(mCurrentUser.getUid());
+        //DatabaseReference myRef2 = database.getReference("EnterValues").child(mCurrentUser.getUid());
                // .child("LOLO").child("September")
                // .child(currentDateTimeString).child("Moodday");
                // myRef2.setValue("Happy");

@@ -165,7 +165,7 @@ public class SelfHarmActivity extends AppCompatActivity {
                 //TODO
                 return true;
             case R.id.action_statistics:
-                logout();
+                showDiagram();
                 return true;
             case R.id.action_settings:
                 //TODO
@@ -173,6 +173,9 @@ public class SelfHarmActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    private void showDiagram() {
+        startActivity(new Intent(SelfHarmActivity.this, Statistics.class));
     }
 
     private void calendarInfo() {
@@ -203,6 +206,7 @@ public class SelfHarmActivity extends AppCompatActivity {
         startActivity(new Intent(SelfHarmActivity.this, MainActivity.class));
         finish();
     }
+
 }
 
 
