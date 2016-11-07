@@ -34,20 +34,6 @@
         android:textSize="20sp"/>
 
     <TextView
-        android:text="@string/hej_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:id="@+id/textField"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/buttonEnterValuesField"
-        android:layout_alignStart="@+id/buttonEnterValuesField" />
-
-    <TextView
         android:layout_height="wrap_content"
         android:id="@+id/nameField"
         android:textSize="24sp"
@@ -86,8 +72,24 @@
         android:fontFamily="sans-serif"
         android:textStyle="normal|bold"
         android:textSize="20sp"
+        android:layout_marginBottom="15dp"
         android:layout_above="@+id/buttonStatisticsField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/hej_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:id="@+id/textField"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/buttonEnterValuesField"
+        android:layout_alignStart="@+id/buttonEnterValuesField" />
 
 </RelativeLayout>

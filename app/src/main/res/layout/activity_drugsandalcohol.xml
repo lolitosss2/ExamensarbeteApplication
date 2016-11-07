@@ -142,7 +142,6 @@
         android:id="@+id/editTextQuantityField"
         android:background="@drawable/edittextborder"
         android:layout_width="50dp"
-        android:layout_toEndOf="@+id/textViewCurrentDateField"
         android:layout_alignLeft="@+id/editTextAlcoholField"
         android:layout_alignStart="@+id/editTextAlcoholField"
         android:textColor="@color/text"

@@ -2,10 +2,12 @@ package db.hfad.com.healthapplication;
 
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v4.content.ContextCompat;
@@ -32,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
 import java.util.Map;
 
 
@@ -55,20 +58,16 @@ public class HealthApp extends AppCompatActivity {
     private Button Emergency;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_healthapp);
 
 
-
         text = (TextView) findViewById(R.id.nameField);
-
 
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
-
 
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid()).child("name");
         mDatabaseUser.addValueEventListener(new ValueEventListener() {
@@ -104,12 +103,13 @@ public class HealthApp extends AppCompatActivity {
             }
         });
 
-
-
-
+        Statistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HealthApp.this,Statistics.class));
+            }
+        });
     }
-
-
     /*
      * Calling menu activity
      */
@@ -144,7 +144,7 @@ public class HealthApp extends AppCompatActivity {
                 //TODO
                 return true;
             case R.id.action_calender:
-                //TODO
+                calendarInfo();
                 return true;
             case R.id.action_help:
                 //TODO
@@ -153,19 +153,33 @@ public class HealthApp extends AppCompatActivity {
                 //TODO
                 return true;
             case R.id.action_statistics:
-                logout();
+               showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+
+    public void calendarInfo() {
+        Calendar today = Calendar.getInstance();
+
+        Uri uriCalendar = Uri.parse("content://com.android.calendar/time/" + String.valueOf(today.getTimeInMillis()));
+        Intent intentCalendar = new Intent(Intent.ACTION_VIEW,uriCalendar);
+
+        //Use the native calendar app to view the date
+        startActivity(intentCalendar);
+        //startActivity(new Intent(HealthApp.this, CalendarActivity.class));
+    }
+
+    private void showDiagram() {
+        startActivity(new Intent(HealthApp.this, Statistics.class));
+    }
+
     private void profileInfo() {
         startActivity(new Intent(HealthApp.this, UserProfile.class));
-
     }
 
     private void logout() {
@@ -173,6 +187,4 @@ public class HealthApp extends AppCompatActivity {
         startActivity(new Intent(HealthApp.this, MainActivity.class));
         finish();
     }
-
-
 }

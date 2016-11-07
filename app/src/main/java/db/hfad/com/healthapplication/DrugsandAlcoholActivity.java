@@ -1,42 +1,152 @@
 package db.hfad.com.healthapplication;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
+
+
 
 /**
  * Created by Lolita on 2016-11-01.
  */
-public class DrugsandAlcoholActivity extends AppCompatActivity{
+public class DrugsandAlcoholActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
+
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabaseDrugsAlcohol;
+
+    private EditText alcoholQuantity;
+    private EditText medicationName;
+    private EditText medicationQuantity;
+
+    private DateFormat dateFormat;
+    private Date date;
+    private String currentDateTimeString;
+
 
 
 
     public static TextView Date;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drugsandalcohol);
 
+        database = FirebaseDatabase.getInstance();
+        mDatabaseDrugsAlcohol = FirebaseDatabase.getInstance().getReference().child("DrugsAlcohol");
+
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
 
+        dateFormat = new SimpleDateFormat("MM");
+        date = new Date();
+
         Date = (TextView) findViewById(R.id.textViewCurrentDateField);
 
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         Date.setText(currentDateTimeString);
+
+        alcoholQuantity = (EditText) findViewById(R.id.editTextAlcoholField);
+        medicationName = (EditText) findViewById(R.id.editTextMedicationNameField);
+        medicationQuantity = (EditText) findViewById(R.id.editTextQuantityField);
+
+
+    }
+
+    private void calenderLog() {
+
+        final String alcoQuantity = alcoholQuantity.getText().toString().trim();
+        final String medicName = medicationName.getText().toString().trim();
+        final String medicQuantity = medicationQuantity.getText().toString().trim();
+
+        if (!TextUtils.isEmpty(alcoQuantity) && !TextUtils.isEmpty(medicName) && !TextUtils.isEmpty(medicQuantity)) {
+            if (mAuth.getCurrentUser() != null) {
+                String user_id = mAuth.getCurrentUser().getUid();
+                DatabaseReference cureent_user_db = mDatabaseDrugsAlcohol.child(user_id)
+                        .child(dateFormat.format(date))
+                        .child(currentDateTimeString);
+
+                cureent_user_db.child("AlcoholQuantity").setValue(alcoQuantity);
+                cureent_user_db.child("MedicationName").setValue(medicName);
+                cureent_user_db.child("Quantity").setValue(medicQuantity);
+
+
+                long calID = 3;
+                long startMillis = 0;
+                long endMillis = 0;
+                Calendar beginTime = Calendar.getInstance();
+                startMillis = beginTime.getTimeInMillis();
+                Calendar endTime = Calendar.getInstance();
+                endMillis = endTime.getTimeInMillis()+60*60*1000;
+
+                TimeZone tz = TimeZone.getDefault();
+
+                ContentResolver cr = getContentResolver();
+                ContentValues values = new ContentValues();
+                values.put(CalendarContract.Events.DTSTART, startMillis);
+                values.put(CalendarContract.Events.DTEND, endMillis);
+                values.put(CalendarContract.Events.TITLE, "Drugs&Alcohol");
+                values.put(CalendarContract.Events.DESCRIPTION, "Alcohol, Quantity: " + alcoQuantity +"\n"
+                        + "Medication Name: "+ medicName +"\n"
+                        + "Quantity: " + medicQuantity);
+                values.put(CalendarContract.Events.CALENDAR_ID, calID);
+                values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getID());
+                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, values);
+
+                    // get the event ID that is the last element in the Uri
+                    long eventID = Long.parseLong(uri.getLastPathSegment());
+
+
+                    Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+                    builder.appendPath("time");
+                    ContentUris.appendId(builder, startMillis);
+                    Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
+                    startActivity(intent);
+
+                    //startActivity(new Intent(DrugsandAlcoholActivity.this, HealthApp.class));
+                }
+            } else {
+            Toast.makeText(DrugsandAlcoholActivity.this,"Please fill all fields",Toast.LENGTH_LONG).show();
+            }
     }
 
     /*
@@ -75,6 +185,7 @@ public class DrugsandAlcoholActivity extends AppCompatActivity{
                 //TODO
                 return true;
             case R.id.action_calender:
+               calendarInfo();
                 //TODO
                 return true;
             case R.id.action_help:
@@ -84,7 +195,7 @@ public class DrugsandAlcoholActivity extends AppCompatActivity{
                 //TODO
                 return true;
             case R.id.action_statistics:
-                logout();
+                showDiagram();
                 return true;
             case R.id.action_settings:
                 //TODO
@@ -94,8 +205,24 @@ public class DrugsandAlcoholActivity extends AppCompatActivity{
         }
     }
 
-    private void previousPage() {
+    private void calendarInfo() {
+            Calendar today = Calendar.getInstance();
+
+            Uri uriCalendar = Uri.parse("content://com.android.calendar/time/" + String.valueOf(today.getTimeInMillis()));
+            Intent intentCalendar = new Intent(Intent.ACTION_VIEW,uriCalendar);
+
+            //Use the native calendar app to view the date
+            startActivity(intentCalendar);
+            //startActivity(new Intent(HealthApp.this, CalendarActivity.class));
+    }
+
+    private void showDiagram() {
         startActivity(new Intent(DrugsandAlcoholActivity.this, Statistics.class));
+    }
+
+    private void previousPage() {
+        calenderLog();
+        //startActivity(new Intent(DrugsandAlcoholActivity.this, Statistics.class));
     }
 
     private void homePage() {

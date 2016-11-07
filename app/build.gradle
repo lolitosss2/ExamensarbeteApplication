@@ -19,6 +19,14 @@ android {
     }
 }
 
+
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
+
+
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -29,6 +37,15 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.6.1'
     compile 'com.google.firebase:firebase-auth:9.6.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.dzaitsev.android.widget:radarchartview:0.1.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+
+    compile 'com.github.npanigrahy:Custom-Calendar-View:v1.1'
+
+
+    compile 'com.github.sundeepk:compact-calendar-view:1.9.4'
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'

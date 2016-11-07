@@ -59,4 +59,6 @@
     <item android:id="@+id/action_sendEmail"
         android:title="@string/send_email"
         app:showAsAction="never" />
+
+
 </menu>

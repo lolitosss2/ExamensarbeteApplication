@@ -33,7 +33,7 @@ public class UserProfile extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_pro);
 
         userName = (EditText)findViewById(R.id.userNameFieldEditText);
         userAge = (EditText)findViewById(R.id.AgeFieldEditText);

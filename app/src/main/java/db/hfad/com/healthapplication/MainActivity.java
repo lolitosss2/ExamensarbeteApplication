@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference mDatabaseUsers;
+    private DatabaseReference mDatabaseEnterValues;
     private FirebaseAuth mAuth;
 
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -37,17 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabaseEnterValues = FirebaseDatabase.getInstance().getReference().child("EnterValues");
 
         mAuth = FirebaseAuth.getInstance();
 
-
-
-
         checkUserExist();
-
-
-
-
 
         setContentView(R.layout.activity_main);
         loginBtn=(Button) findViewById(R.id.log_in_btn);
