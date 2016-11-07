@@ -59,7 +59,8 @@
                     android:textColorHint="@color/text"
                     android:textColorLink="@color/text"
                     android:layout_marginRight="30dp"
-                    android:layout_marginEnd="30dp"/>
+                    android:layout_marginEnd="30dp"
+                    android:paddingLeft="20dp" />
 
             </LinearLayout>
 
@@ -97,7 +98,8 @@
                     android:textColorHint="@color/text"
                     android:textColorLink="@color/text"
                     android:layout_marginRight="30dp"
-                    android:layout_marginEnd="30dp"/>
+                    android:layout_marginEnd="30dp"
+                    android:paddingLeft="20dp" />
 
             </LinearLayout>
             <Space

@@ -41,10 +41,7 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 
     compile 'com.github.npanigrahy:Custom-Calendar-View:v1.1'
-
-
     compile 'com.github.sundeepk:compact-calendar-view:1.9.4'
-
 
 }
 

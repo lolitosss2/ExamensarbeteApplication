@@ -112,7 +112,9 @@ public class Statistics extends AppCompatActivity{
         chartView.setChartStyle(FILL);           // chart drawn with this style will be filled not stroked
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("EnterValues").child(mCurrentUser.getUid()).child("11");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("EnterValues")
+                .child(mCurrentUser.getUid())
+                .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -121,34 +123,52 @@ public class Statistics extends AppCompatActivity{
                     list.add(String.valueOf(data.getValue())); //add result into array list
                 }
                 System.out.println(list);
-                for (int i = 0; i < list.size(); i++) {
+                float sum = 0;
+                float sum1 = 0;
+                float sum2 = 0;
+                float sum3 = 0;
+                float sum4 = 0;
+                float sum5 = 0;
+                float sum6 = 0;
+                float sum7 = 0;
+                float sum8 = 0;
 
+                for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).contains("sad")) {
-                        chartView.addOrReplace("Sadness", 14.0F);
+                        sum = sum +1;
+                        chartView.addOrReplace("Sadness", sum);
                     }
                     else if (list.get(i).contains("indifferent")) {
-                        chartView.addOrReplace("Indifference", 1.0F);
+                        sum1 = sum1+1;
+                        chartView.addOrReplace("Indifference", sum1);
                     }
                     else if (list.get(i).contains("dizzy")) {
-                        chartView.addOrReplace("Dizziness", 1.0F);
+                        sum2 = sum2+1;
+                        chartView.addOrReplace("Dizziness", sum2);
                     }
                     else if (list.get(i).contains("scared")) {
-                        chartView.addOrReplace("Fear", 1.0F);
+                        sum3 = sum3+1;
+                        chartView.addOrReplace("Fear", sum3);
                     }
                     else if (list.get(i).contains("happy")) {
-                        chartView.addOrReplace("Happiness", 1.0F);
+                        sum4 = sum4+1;
+                        chartView.addOrReplace("Happiness", sum4);
                     }
                     else if (list.get(i).contains("confused")) {
-                        chartView.addOrReplace("Confusion", 10.0F);
+                        sum5 = sum5 + 1;
+                        chartView.addOrReplace("Confusion", sum5);
                     }
                     else if (list.get(i).contains("crying")) {
-                        chartView.addOrReplace("Crying", 18.0F);
+                        sum6 = sum6 +1;
+                        chartView.addOrReplace("Crying", sum6);
                     }
                     else if (list.get(i).contains("inlove")) {
-                        chartView.addOrReplace("Inlove", 1.0F);
+                        sum7 = sum7 + 1;
+                        chartView.addOrReplace("Inlove", sum7);
                     }
                     else if (list.get(i).contains("angry")) {
-                        chartView.addOrReplace("Anger", 1.0F);
+                        sum8 = sum8 +1;
+                        chartView.addOrReplace("Anger", sum8);
                     }
                 }
             }

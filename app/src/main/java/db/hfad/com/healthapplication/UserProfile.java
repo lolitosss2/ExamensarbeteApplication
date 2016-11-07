@@ -1,7 +1,9 @@
 package db.hfad.com.healthapplication;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -89,4 +91,19 @@ public class UserProfile extends AppCompatActivity{
             Toast.makeText(UserProfile.this,"Please fill all fields",Toast.LENGTH_LONG).show();
         }
     }
+    //save userProfile
+    //saveData
+    public void saveInfo(View view){
+        SharedPreferences sharedPref = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("userName",userName.getText().toString());
+        editor.putString("userAge",userAge.getText().toString());
+        editor.putString("userGender",userGender.getSelectedItem().toString());
+        editor.apply();
+
+        Toast.makeText(this,"Saved!",Toast.LENGTH_LONG).show();
+    }
+
+
+
 }

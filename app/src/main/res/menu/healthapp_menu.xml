@@ -10,9 +10,9 @@
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_next"
-        android:icon="@drawable/nextbutton"
-        android:title="whatevert"
-        app:showAsAction="ifRoom" />
+    android:icon="@drawable/nextbutton"
+    android:title="whatevert"
+    app:showAsAction="ifRoom" />
 
 
 

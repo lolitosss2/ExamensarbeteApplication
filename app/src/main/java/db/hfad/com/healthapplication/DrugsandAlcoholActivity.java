@@ -3,7 +3,9 @@ package db.hfad.com.healthapplication;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +32,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.TimeZone;
 
 
@@ -46,11 +52,13 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
     private EditText alcoholQuantity;
     private EditText medicationName;
     private EditText medicationQuantity;
+    private TextView AQ;
+    private TextView MN;
+    private TextView MQ;
 
     private DateFormat dateFormat;
     private Date date;
     private String currentDateTimeString;
-
 
 
 
@@ -78,6 +86,10 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
         alcoholQuantity = (EditText) findViewById(R.id.editTextAlcoholField);
         medicationName = (EditText) findViewById(R.id.editTextMedicationNameField);
         medicationQuantity = (EditText) findViewById(R.id.editTextQuantityField);
+
+        AQ = (TextView)findViewById(R.id.textViewaqField);
+        MN = (TextView)findViewById(R.id.textViewmnField);
+        MQ = (TextView)findViewById(R.id.textViewmqField);
 
 
     }
@@ -239,4 +251,50 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
         startActivity(new Intent(DrugsandAlcoholActivity.this, MainActivity.class));
         finish();
     }
+
+
+    //saveData
+    public void saveInfo(View view){
+        SharedPreferences sharedPref = getSharedPreferences("AlcoholDrugs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("alcoholQuantity",alcoholQuantity.getText().toString());
+        editor.putString("medicationName",medicationName.getText().toString());
+        editor.putString("medicationQuantity",medicationQuantity.getText().toString());
+        editor.apply();
+
+        Toast.makeText(this,"Saved!",Toast.LENGTH_LONG).show();
+
+        sharedPref = getSharedPreferences("AlcoholDrugs", Context.MODE_PRIVATE);
+        String alcoQuantity = sharedPref.getString("alcoholQuantity","");
+        String medicName = sharedPref.getString("medicationName","");
+        String medicQuantity = sharedPref.getString("medicationQuantity","");
+
+        alcoholQuantity.setVisibility(View.INVISIBLE);
+        AQ.setText(alcoQuantity);
+        AQ.setVisibility(View.VISIBLE);
+        medicationName.setVisibility(View.INVISIBLE);
+        MN.setText(medicName);
+        MN.setVisibility(View.VISIBLE);
+        medicationQuantity.setVisibility(View.INVISIBLE);
+        MQ.setText(medicQuantity);
+        MQ.setVisibility(View.VISIBLE);
+    }
+
+    //print out data
+    public void displayData(View view){
+        MN.setVisibility(View.INVISIBLE);
+        medicationName.setVisibility(View.VISIBLE);
+        //System.out.println(alcoQuantity + "" + medicName + "" + medicQuantity);
+    }
+
+    public void editData(View view){
+        AQ.setVisibility(View.INVISIBLE);
+        alcoholQuantity.setVisibility(View.VISIBLE);
+    }
+
+    public void edit2Data(View view){
+        MQ.setVisibility(View.INVISIBLE);
+        medicationQuantity.setVisibility(View.VISIBLE);
+    }
+
 }
