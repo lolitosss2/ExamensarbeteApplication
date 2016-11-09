@@ -198,6 +198,9 @@ public class FeelingsSecondActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_previous:
                 previousPage();
                 return true;
@@ -232,7 +235,9 @@ public class FeelingsSecondActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
-
+    private void statisticsInfo() {
+        startActivity(new Intent(FeelingsSecondActivity.this, StatisticsActivity.class));
+    }
 
     private void calendarInfo() {
         Calendar today = Calendar.getInstance();

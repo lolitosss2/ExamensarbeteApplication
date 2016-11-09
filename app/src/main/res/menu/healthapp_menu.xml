@@ -60,5 +60,9 @@
         android:title="@string/send_email"
         app:showAsAction="never" />
 
+    <item android:id="@+id/action_statisticseach"
+        android:title="DataAnalys"
+        app:showAsAction="never" />
+
 
 </menu>

@@ -58,6 +58,9 @@ public class EmergencyActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_home:
                 homePage();
                 return true;
@@ -88,6 +91,10 @@ public class EmergencyActivity extends AppCompatActivity{
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(EmergencyActivity.this, StatisticsActivity.class));
     }
 
     private void calendarInfo() {

@@ -61,26 +61,21 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <com.github.mikephil.charting.charts.BarChart
+                    <com.github.mikephil.charting.charts.PieChart
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/bargraph">
-                    </com.github.mikephil.charting.charts.BarChart>
-                </LinearLayout>
+                        android:id="@+id/PieChart"></com.github.mikephil.charting.charts.PieChart>
 
-                <LinearLayout
-                    android:id="@+id/tab3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <com.github.mikephil.charting.charts.BarChart
+                  <!--  <com.github.mikephil.charting.charts.LineChart
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/bargraphLoneliness">
-                    </com.github.mikephil.charting.charts.BarChart>
+                        android:id="@+id/LineChart"></com.github.mikephil.charting.charts.LineChart>
+
+                        -->
 
                 </LinearLayout>
+
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>

@@ -199,6 +199,9 @@ public class EnterValuesActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_home:
                 homePage();
                 return true;
@@ -229,6 +232,10 @@ public class EnterValuesActivity extends AppCompatActivity{
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(EnterValuesActivity.this, StatisticsActivity.class));
     }
 
 

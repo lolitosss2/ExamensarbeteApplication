@@ -181,6 +181,9 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_next:
                 previousPage();
                 return true;
@@ -215,6 +218,10 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(DrugsandAlcoholActivity.this, StatisticsActivity.class));
     }
 
     private void calendarInfo() {

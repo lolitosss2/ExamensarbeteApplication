@@ -30,6 +30,7 @@
         <activity android:name=".FeelingsSecondActivity"></activity>
         <activity android:name=".DrugsandAlcoholActivity"></activity>
         <activity android:name=".Statistics"></activity>
+        <activity android:name=".StatisticsActivity"></activity>
     </application>
 
 </manifest>

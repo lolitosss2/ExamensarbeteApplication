@@ -1,6 +1,7 @@
 package db.hfad.com.healthapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -11,14 +12,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 
 import com.dzaitsev.android.widget.RadarChartView;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,17 +65,19 @@ public class Statistics extends AppCompatActivity{
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
 
-    private BarChart barchart;
-    private BarChart barchartLoneliness;
+    private LineChart linechart;
+
+    StatisticsActivity sa = new StatisticsActivity();
 
 
-    private ArrayList<BarEntry> barEntries;
-    private ArrayList<BarEntry> barEntriesLoneliness;
-    private BarDataSet barDataSet;
-    private BarDataSet barDataSetLoneliness;
-    private ArrayList<String> theDates;
-    private BarData theData;
-    private BarData theDataLoneliness;
+
+    private PieChart mChart;
+    // we're going to display pie chart for smartphones martket shares
+    //private float[] yData = { 5, 10, 15, 30, 40 ,};
+    private float[] yData = {};
+    private String[] xData = { "Sadness", "Anxiety", "Shame", "Emptyness", "Loneliness", "Anger" , "Self-Respect" };
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,13 +94,10 @@ public class Statistics extends AppCompatActivity{
 
         specs = th.newTabSpec("Tab2");
         specs.setContent(R.id.tab2);
-        specs.setIndicator("Sadness");
+        specs.setIndicator("All feelings");
         th.addTab(specs);
 
-        specs = th.newTabSpec("Tab3");
-        specs.setContent(R.id.tab3);
-        specs.setIndicator("Loneliness");
-        th.addTab(specs);
+
 
         database = FirebaseDatabase.getInstance();
 
@@ -92,7 +106,7 @@ public class Statistics extends AppCompatActivity{
 
         final Map<String, Float> axis = new LinkedHashMap<>(10);
 
-        axis.put("Confusion", 0F);
+        /*axis.put("Confusion", 0F);
         axis.put("Happiness", 0F);
         axis.put("Indifference", 0F);
         axis.put("Anger", 0F);
@@ -100,7 +114,18 @@ public class Statistics extends AppCompatActivity{
         axis.put("Sadness", 0F);
         axis.put("Inlove", 0F);
         axis.put("Dizziness", 0F);
-        axis.put("Crying", 0F);
+        axis.put("Crying", 0F);*/
+
+
+        axis.put("Interest", 0F);
+        axis.put("Anger", 0F);
+        axis.put("Contempt", 0F);
+        axis.put("Disgust", 0F);
+        axis.put("Fear", 0F);
+        axis.put("Joy", 0F);
+        axis.put("Sadness", 0F);
+        axis.put("Surprise", 0F);
+        axis.put("Shame", 0F);
 
 
         // Set your data to the view
@@ -136,40 +161,50 @@ public class Statistics extends AppCompatActivity{
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i).contains("sad")) {
                         sum = sum +1;
-                        chartView.addOrReplace("Sadness", sum);
+                        chartView.addOrReplace("Interest", sum);
+                       // chartView.addOrReplace("Sadness", sum);
                     }
                     else if (list.get(i).contains("indifferent")) {
                         sum1 = sum1+1;
-                        chartView.addOrReplace("Indifference", sum1);
+                        chartView.addOrReplace("Anger", sum1);
+                        //chartView.addOrReplace("Indifference", sum1);
                     }
                     else if (list.get(i).contains("dizzy")) {
                         sum2 = sum2+1;
-                        chartView.addOrReplace("Dizziness", sum2);
+                        chartView.addOrReplace("Contempt", sum2);
+                        //chartView.addOrReplace("Dizziness", sum2);
                     }
                     else if (list.get(i).contains("scared")) {
                         sum3 = sum3+1;
-                        chartView.addOrReplace("Fear", sum3);
+                        chartView.addOrReplace("Disgust", sum3);
+                        //chartView.addOrReplace("Fear", sum3);
                     }
                     else if (list.get(i).contains("happy")) {
                         sum4 = sum4+1;
-                        chartView.addOrReplace("Happiness", sum4);
+                        chartView.addOrReplace("Shame", sum4);
+                        //chartView.addOrReplace("Happiness", sum4);
                     }
                     else if (list.get(i).contains("confused")) {
                         sum5 = sum5 + 1;
-                        chartView.addOrReplace("Confusion", sum5);
+                        chartView.addOrReplace("Joy", sum5);
+                        //chartView.addOrReplace("Confusion", sum5);
                     }
                     else if (list.get(i).contains("crying")) {
                         sum6 = sum6 +1;
-                        chartView.addOrReplace("Crying", sum6);
+                        chartView.addOrReplace("Sadness", sum6);
+                        //chartView.addOrReplace("Crying", sum6);
                     }
                     else if (list.get(i).contains("inlove")) {
                         sum7 = sum7 + 1;
-                        chartView.addOrReplace("Inlove", sum7);
+                        chartView.addOrReplace("Fear", sum7);
+                        //chartView.addOrReplace("Inlove", sum7);
                     }
                     else if (list.get(i).contains("angry")) {
                         sum8 = sum8 +1;
-                        chartView.addOrReplace("Anger", sum8);
+                        chartView.addOrReplace("Surprise", sum8);
+                        //chartView.addOrReplace("Anger", sum8);
                     }
+
                 }
             }
 
@@ -177,40 +212,123 @@ public class Statistics extends AppCompatActivity{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+        System.out.print("AAAAAAAAAAAAAAAAAAAAAAAAA");
+System.out.print(sa.Sadness);
+///////////////////////////////////////////////////////////////////////////////////
+            yData = new float[]{sa.Sadness,sa.Anxiety,sa.Shame,sa.Emptyness,sa.Loneliness,sa.Anger,sa.SelfRespect};
+        //mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+        mChart = new PieChart(this);
+        // add pie chart to main layout
+        //mainLayout.addView(mChart);
+        mChart = (PieChart)findViewById(R.id.PieChart);
+       // mainLayout.setBackgroundColor(Color.parseColor("#55656C"));
 
+        // configure pie chart
+        mChart.setUsePercentValues(true);
+        mChart.setDescription("Feelings");
 
+        // enable hole and configure
+        mChart.setDrawHoleEnabled(true);
+        //mChart.setHoleColorTransparent(true);
+        mChart.setHoleRadius(7);
+        mChart.setTransparentCircleRadius(10);
 
-        barchart = (BarChart)findViewById(R.id.bargraph);
+        // enable rotation of the chart by touch
+        mChart.setRotationAngle(0);
+        mChart.setRotationEnabled(true);
 
-        barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(48f,0));
-        barEntries.add(new BarEntry(25f,1));
-        barEntries.add(new BarEntry(66f,2));
-        barEntries.add(new BarEntry(0f,4));
-        barEntries.add(new BarEntry(0f,5));
+        // set a chart value selected listener
+        mChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
 
-        barDataSet = new BarDataSet(barEntries,"Dates");
+            @Override
+            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+                // display msg when value selected
+                if (e == null)
+                    return;
 
-        theDates = new ArrayList<>();
-        theDates.add("August");
-        theDates.add("September");
-        theDates.add("October");
-        theDates.add("November");
-        theDates.add("December");
-        theDates.add("January");
+                Toast.makeText(Statistics.this,
+                        xData[e.getXIndex()] + " = " + e.getVal() + "%", Toast.LENGTH_SHORT).show();
+            }
 
-        theData = new BarData(theDates,barDataSet);
+            @Override
+            public void onNothingSelected() {
 
-        barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
-        barchart.animateY(3000);
-        barchart.setTouchEnabled(true);
-        barchart.setDragEnabled(true);
-        barchart.setScaleEnabled(true);
+            }
+        });
+
+        // add data
+        addData();
+
+        // customize legends
+        Legend l = mChart.getLegend();
+        l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
+        l.setXEntrySpace(7);
+        l.setYEntrySpace(5);
+    }
+
+    private void addData() {
+        ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+
+        for (int i = 0; i < yData.length; i++)
+            yVals1.add(new Entry(yData[i], i));
+
+        ArrayList<String> xVals = new ArrayList<String>();
+
+        for (int i = 0; i < xData.length; i++)
+            xVals.add(xData[i]);
+
+        // create pie data set
+        PieDataSet dataSet = new PieDataSet(yVals1, "Feelings");
+        dataSet.setSliceSpace(3);
+        dataSet.setSelectionShift(5);
+
+        // add many colors
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.JOYFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.COLORFUL_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.LIBERTY_COLORS)
+            colors.add(c);
+
+        for (int c : ColorTemplate.PASTEL_COLORS)
+            colors.add(c);
+
+        colors.add(ColorTemplate.getHoloBlue());
+        dataSet.setColors(colors);
+
+        // instantiate pie data object now
+        PieData data = new PieData(xVals, dataSet);
+        data.setValueFormatter(new PercentFormatter());
+        data.setValueTextSize(11f);
+        data.setValueTextColor(Color.GRAY);
+
+        mChart.setData(data);
+
+        // undo all highlights
+        mChart.highlightValues(null);
+
+        // update pie chart
+        mChart.invalidate();
+
+        /*linechart = (LineChart)findViewById(R.id.LineChart);
+
+        ArrayList<String> xAXES = new ArrayList<>();
+        ArrayList<Entry> yAXESsin = new ArrayList<>();
+        ArrayList<Entry> yAXEScos = new ArrayList<>();
+        double x = 0;
+        int numDataPoints = 1000;
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
-                .child("Sadness")
+                .child("Anxiety")
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -227,9 +345,11 @@ public class Statistics extends AppCompatActivity{
                 for (int i = 0; i < list.size(); i++) {
                     sum = sum + Integer.parseInt(list.get(i));
                     average = sum / list.size();
+
                 }
-                barEntries.add(new BarEntry(average, 3));
-                barchart.setData(theData);
+
+                //barEntriesAnxiety.add(new BarEntry(average, 3));
+                //barchartAnxiety.setData(theDataAnxiety);
             }
 
             @Override
@@ -237,62 +357,39 @@ public class Statistics extends AppCompatActivity{
             }
         });
 
-        barchartLoneliness = (BarChart)findViewById(R.id.bargraphLoneliness);
-
-        barEntriesLoneliness = new ArrayList<>();
-        barEntriesLoneliness.add(new BarEntry(0f,0));
-        barEntriesLoneliness.add(new BarEntry(12f,1));
-        barEntriesLoneliness.add(new BarEntry(10f,2));
-        barEntriesLoneliness.add(new BarEntry(0f,4));
-        barEntriesLoneliness.add(new BarEntry(0f,5));
-
-        barDataSetLoneliness = new BarDataSet(barEntriesLoneliness,"Dates");
-
-        theDates = new ArrayList<>();
-        theDates.add("August");
-        theDates.add("September");
-        theDates.add("October");
-        theDates.add("November");
-        theDates.add("December");
-        theDates.add("January");
-
-        theDataLoneliness = new BarData(theDates,barDataSetLoneliness);
-
-        barDataSetLoneliness.setColors(ColorTemplate.LIBERTY_COLORS);
-        barchartLoneliness.animateY(3000);
-        barchartLoneliness.setTouchEnabled(true);
-        barchartLoneliness.setDragEnabled(true);
-        barchartLoneliness.setScaleEnabled(true);
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
-                .child(mCurrentUser.getUid())
-                .child("Loneliness")
-                .child("11");
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                List<String> list = new ArrayList<String>();
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    list.add(String.valueOf(data.getValue())); //add result into array list
-                }
-                System.out.println(list);
 
-                int sum = 0;
-                float average = 0;
+        for(int i=0;i<numDataPoints;i++){
+            float sinFunction = Float.parseFloat(String.valueOf(Math.sin(x)));
+            float cosFunction = Float.parseFloat(String.valueOf(Math.cos(x)));
+            x = x + 0.1;
+            yAXESsin.add(new Entry(sinFunction,i));
+            yAXEScos.add(new Entry(cosFunction,i));
+            xAXES.add(i, String.valueOf(x));
+        }
+        String[] xaxes = new String[xAXES.size()];
+        for(int i=0; i<xAXES.size();i++){
+            xaxes[i] = xAXES.get(i).toString();
+        }
 
-                for (int i = 0; i < list.size(); i++) {
-                    sum = sum + Integer.parseInt(list.get(i));
-                    average = sum / list.size();
-                }
-                barEntriesLoneliness.add(new BarEntry(average, 3));
-                barchartLoneliness.setData(theDataLoneliness);
-            }
+        ArrayList<ILineDataSet> lineDataSets = new ArrayList<>();
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+        LineDataSet lineDataSet1 = new LineDataSet(yAXEScos,"cos");
+        lineDataSet1.setDrawCircles(false);
+        lineDataSet1.setColor(Color.BLUE);
+
+        LineDataSet lineDataSet2 = new LineDataSet(yAXESsin,"sin");
+        lineDataSet2.setDrawCircles(false);
+        lineDataSet2.setColor(Color.RED);
+
+        lineDataSets.add(lineDataSet1);
+        lineDataSets.add(lineDataSet2);
+
+        linechart.setData(new LineData(xaxes,lineDataSets));
+
+        linechart.setVisibleXRangeMaximum(65f);*/
+
     }
 
     /*
@@ -315,6 +412,9 @@ public class Statistics extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_previous:
                 previousPage();
                 return true;
@@ -348,6 +448,10 @@ public class Statistics extends AppCompatActivity{
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(Statistics.this, StatisticsActivity.class));
     }
 
     private void calendarInfo() {

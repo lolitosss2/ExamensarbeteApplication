@@ -134,6 +134,9 @@ public class HealthApp extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_profile:
                 profileInfo();
                 return true;
@@ -160,6 +163,10 @@ public class HealthApp extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(HealthApp.this, StatisticsActivity.class));
     }
 
 
