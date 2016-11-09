@@ -96,37 +96,37 @@ public class StatisticsActivity extends AppCompatActivity{
         th.setup();
         TabHost.TabSpec specs = th.newTabSpec("Tab1");
         specs.setContent(R.id.tab1Anxiety);
-        specs.setIndicator("Anx");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.anxiety));
         th.addTab(specs);
 
         specs = th.newTabSpec("Tab2");
         specs.setContent(R.id.tab2Shame);
-        specs.setIndicator("Shame");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.skam));
         th.addTab(specs);
 
         specs = th.newTabSpec("Tab3");
         specs.setContent(R.id.tab3Emptyness);
-        specs.setIndicator("Emptyness");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.tom2));
         th.addTab(specs);
 
         specs = th.newTabSpec("Tab4");
         specs.setContent(R.id.tab4Anger);
-        specs.setIndicator("Anger");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.angry));
         th.addTab(specs);
 
         specs = th.newTabSpec("Tab5");
         specs.setContent(R.id.tab5SelfRespect);
-        specs.setIndicator("Self-Respect");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.nojd));
         th.addTab(specs);
 
         specs = th.newTabSpec("Tab6");
         specs.setContent(R.id.tab6Sadness);
-        specs.setIndicator("Sadness");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.grata));
         th.addTab(specs);
 
         specs = th.newTabSpec("Tab7");
         specs.setContent(R.id.tab7Loneliness);
-        specs.setIndicator("Loneliness");
+        specs.setIndicator("",getResources().getDrawable(R.drawable.lonely));
         th.addTab(specs);
 
         database = FirebaseDatabase.getInstance();
@@ -135,6 +135,9 @@ public class StatisticsActivity extends AppCompatActivity{
         mCurrentUser = mAuth.getCurrentUser();
 
         barchartAnxiety = (BarChart)findViewById(R.id.bargraphAnxiety);
+        barchartAnxiety.setDescription("Anxiety");
+        barchartAnxiety.setDescriptionTextSize(34);
+
 
         barEntriesAnxiety = new ArrayList<>();
         barEntriesAnxiety.add(new BarEntry(48f,0));
@@ -198,6 +201,8 @@ public class StatisticsActivity extends AppCompatActivity{
         //SHAME
 
         barchartShame = (BarChart)findViewById(R.id.bargraphShame);
+        barchartShame.setDescription("Shame");
+        barchartShame.setDescriptionTextSize(34);
 
         barEntriesShame = new ArrayList<>();
         barEntriesShame.add(new BarEntry(48f,0));
@@ -252,6 +257,8 @@ public class StatisticsActivity extends AppCompatActivity{
 
 
         barchartEmptyness = (BarChart)findViewById(R.id.bargraphEmptyness);
+        barchartEmptyness.setDescription("Emptyness");
+        barchartEmptyness.setDescriptionTextSize(34);
 
         barEntriesEmptyness = new ArrayList<>();
         barEntriesEmptyness.add(new BarEntry(48f,0));
@@ -304,6 +311,8 @@ public class StatisticsActivity extends AppCompatActivity{
         //Anger
 
         barchartAnger = (BarChart)findViewById(R.id.bargraphAnger);
+        barchartAnger.setDescription("Anger");
+        barchartAnger.setDescriptionTextSize(34);
 
         barEntriesAnger = new ArrayList<>();
         barEntriesAnger.add(new BarEntry(48f,0));
@@ -357,6 +366,8 @@ public class StatisticsActivity extends AppCompatActivity{
 
 
         barchartSelfRespect = (BarChart)findViewById(R.id.bargraphSelfrespect);
+        barchartSelfRespect.setDescription("Self-respect");
+        barchartSelfRespect.setDescriptionTextSize(34);
 
         barEntriesSelfRespect = new ArrayList<>();
         barEntriesSelfRespect.add(new BarEntry(48f,0));
@@ -411,6 +422,8 @@ public class StatisticsActivity extends AppCompatActivity{
 
 
         barchartSadness = (BarChart)findViewById(R.id.bargraphSadness);
+        barchartSadness.setDescription("Sadness");
+        barchartSadness.setDescriptionTextSize(34);
 
         barEntriesSadness = new ArrayList<>();
         barEntriesSadness.add(new BarEntry(48f,0));
@@ -464,6 +477,8 @@ public class StatisticsActivity extends AppCompatActivity{
         //Loneliness
 
         barchartLoneliness= (BarChart)findViewById(R.id.bargraphLoneliness);
+        barchartLoneliness.setDescription("Loneliness");
+        barchartLoneliness.setDescriptionTextSize(34);
 
         barEntriesLoneliness = new ArrayList<>();
         barEntriesLoneliness.add(new BarEntry(48f,0));

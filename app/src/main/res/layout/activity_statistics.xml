@@ -36,7 +36,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <com.dzaitsev.android.widget.RadarChartView
+               <com.dzaitsev.android.widget.RadarChartView
                         android:id="@+id/chartView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -53,7 +53,10 @@
                         app:endColor="#c3e3e5"
                         app:startColor="#5f9ca1"
                         app:textSize="12sp" />
+
+
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:id="@+id/tab2"
