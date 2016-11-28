@@ -132,11 +132,54 @@
 
 
             </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:text="Therapist Tel:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TelField"
+                    android:textColor="@color/text"
+                    android:textStyle="normal|bold"
+                    android:textSize="24sp"
+                    android:layout_weight="0.00"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginEnd="20dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/TelFieldEditText"
+                    android:background="@drawable/edittextborder"
+                    android:textColor="@color/text"
+                    android:textColorHint="@color/text"
+                    android:textColorLink="@color/text"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingLeft="20dp" />
+
+
+
+            </LinearLayout>
+
+
+
+
 
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_weight="1" />
 
             <LinearLayout

@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -31,6 +32,8 @@
         <activity android:name=".DrugsandAlcoholActivity"></activity>
         <activity android:name=".Statistics"></activity>
         <activity android:name=".StatisticsActivity"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SendEmailActivity"></activity>
     </application>
 
 </manifest>

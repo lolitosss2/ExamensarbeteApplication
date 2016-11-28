@@ -140,13 +140,16 @@ public class StatisticsActivity extends AppCompatActivity{
 
 
         barEntriesAnxiety = new ArrayList<>();
-        barEntriesAnxiety.add(new BarEntry(48f,0));
+        /*barEntriesAnxiety.add(new BarEntry(48f,0));
         barEntriesAnxiety.add(new BarEntry(25f,1));
-        barEntriesAnxiety.add(new BarEntry(66f,2));
+        barEntriesAnxiety.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesAnxiety.add(new BarEntry(0f,4));
         barEntriesAnxiety.add(new BarEntry(0f,5));
 
-        barDataSetAnxiety = new BarDataSet(barEntriesAnxiety,"Dates");
+        barDataSetAnxiety = new BarDataSet(barEntriesAnxiety,"Months");
 
         theDates = new ArrayList<>();
         theDates.add("August");
@@ -205,13 +208,16 @@ public class StatisticsActivity extends AppCompatActivity{
         barchartShame.setDescriptionTextSize(34);
 
         barEntriesShame = new ArrayList<>();
-        barEntriesShame.add(new BarEntry(48f,0));
+        /*barEntriesShame.add(new BarEntry(48f,0));
         barEntriesShame.add(new BarEntry(25f,1));
-        barEntriesShame.add(new BarEntry(66f,2));
+        barEntriesShame.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesShame.add(new BarEntry(0f,4));
         barEntriesShame.add(new BarEntry(0f,5));
 
-        barDataSetShame = new BarDataSet(barEntriesShame,"Dates");
+        barDataSetShame = new BarDataSet(barEntriesShame,"Months");
 
         theDataShame = new BarData(theDates,barDataSetShame);
 
@@ -261,13 +267,16 @@ public class StatisticsActivity extends AppCompatActivity{
         barchartEmptyness.setDescriptionTextSize(34);
 
         barEntriesEmptyness = new ArrayList<>();
-        barEntriesEmptyness.add(new BarEntry(48f,0));
+        /*barEntriesEmptyness.add(new BarEntry(48f,0));
         barEntriesEmptyness.add(new BarEntry(25f,1));
-        barEntriesEmptyness.add(new BarEntry(66f,2));
+        barEntriesEmptyness.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesEmptyness.add(new BarEntry(0f,4));
         barEntriesEmptyness.add(new BarEntry(0f,5));
 
-        barDataSetEmptyness = new BarDataSet(barEntriesEmptyness,"Dates");
+        barDataSetEmptyness = new BarDataSet(barEntriesEmptyness,"Months");
 
         theDataEmptyness = new BarData(theDates,barDataSetEmptyness);
 
@@ -315,13 +324,16 @@ public class StatisticsActivity extends AppCompatActivity{
         barchartAnger.setDescriptionTextSize(34);
 
         barEntriesAnger = new ArrayList<>();
-        barEntriesAnger.add(new BarEntry(48f,0));
+        /*barEntriesAnger.add(new BarEntry(48f,0));
         barEntriesAnger.add(new BarEntry(25f,1));
-        barEntriesAnger.add(new BarEntry(66f,2));
+        barEntriesAnger.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesAnger.add(new BarEntry(0f,4));
         barEntriesAnger.add(new BarEntry(0f,5));
 
-        barDataSetAnger = new BarDataSet(barEntriesAnger,"Dates");
+        barDataSetAnger = new BarDataSet(barEntriesAnger,"Months");
 
         theDataAnger = new BarData(theDates,barDataSetAnger);
 
@@ -370,13 +382,16 @@ public class StatisticsActivity extends AppCompatActivity{
         barchartSelfRespect.setDescriptionTextSize(34);
 
         barEntriesSelfRespect = new ArrayList<>();
-        barEntriesSelfRespect.add(new BarEntry(48f,0));
+       /* barEntriesSelfRespect.add(new BarEntry(48f,0));
         barEntriesSelfRespect.add(new BarEntry(25f,1));
-        barEntriesSelfRespect.add(new BarEntry(66f,2));
+        barEntriesSelfRespect.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesSelfRespect.add(new BarEntry(0f,4));
         barEntriesSelfRespect.add(new BarEntry(0f,5));
 
-        barDataSetSelfRespect = new BarDataSet(barEntriesSelfRespect,"Dates");
+        barDataSetSelfRespect = new BarDataSet(barEntriesSelfRespect,"Months");
 
         theDataSelfRespect = new BarData(theDates,barDataSetSelfRespect);
 
@@ -426,13 +441,16 @@ public class StatisticsActivity extends AppCompatActivity{
         barchartSadness.setDescriptionTextSize(34);
 
         barEntriesSadness = new ArrayList<>();
-        barEntriesSadness.add(new BarEntry(48f,0));
+       /*barEntriesSadness.add(new BarEntry(48f,0));
         barEntriesSadness.add(new BarEntry(25f,1));
-        barEntriesSadness.add(new BarEntry(66f,2));
+        barEntriesSadness.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesSadness.add(new BarEntry(0f,4));
         barEntriesSadness.add(new BarEntry(0f,5));
 
-        barDataSetSadness = new BarDataSet(barEntriesSadness,"Dates");
+        barDataSetSadness = new BarDataSet(barEntriesSadness,"Months");
 
         theDataSadness = new BarData(theDates,barDataSetSadness);
 
@@ -481,13 +499,16 @@ public class StatisticsActivity extends AppCompatActivity{
         barchartLoneliness.setDescriptionTextSize(34);
 
         barEntriesLoneliness = new ArrayList<>();
-        barEntriesLoneliness.add(new BarEntry(48f,0));
+       /* barEntriesLoneliness.add(new BarEntry(48f,0));
         barEntriesLoneliness.add(new BarEntry(25f,1));
-        barEntriesLoneliness.add(new BarEntry(66f,2));
+        barEntriesLoneliness.add(new BarEntry(66f,2));*/
+        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(0f,1));
+        barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesLoneliness.add(new BarEntry(0f,4));
         barEntriesLoneliness.add(new BarEntry(0f,5));
 
-        barDataSetLoneliness = new BarDataSet(barEntriesLoneliness,"Dates");
+        barDataSetLoneliness = new BarDataSet(barEntriesLoneliness,"Months");
 
         theDataLoneliness = new BarData(theDates,barDataSetLoneliness);
 
@@ -562,26 +583,33 @@ public class StatisticsActivity extends AppCompatActivity{
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
                 calendarInfo();
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
                 showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void sendEmail() {
+        startActivity(new Intent(StatisticsActivity.this,SendEmailActivity.class));
+    }
+
+    private void settingsInfo() {
+        startActivity(new Intent(StatisticsActivity.this,SettingsActivity.class));
     }
 
 

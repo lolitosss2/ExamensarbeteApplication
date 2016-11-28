@@ -25,6 +25,7 @@ public class UserProfile extends AppCompatActivity{
     private EditText userName;
     private EditText userAge;
     private Spinner userGender;
+    private EditText therapistTel;
     private Button applyProfileSettings;
 
     private FirebaseDatabase database;
@@ -40,6 +41,7 @@ public class UserProfile extends AppCompatActivity{
         userName = (EditText)findViewById(R.id.userNameFieldEditText);
         userAge = (EditText)findViewById(R.id.AgeFieldEditText);
         userGender = (Spinner)findViewById(R.id.GenderSpinnerField);
+        therapistTel = (EditText)findViewById(R.id.TelFieldEditText);
 
         database = FirebaseDatabase.getInstance();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -69,6 +71,7 @@ public class UserProfile extends AppCompatActivity{
         final String name = userName.getText().toString().trim();
         final String age = userAge.getText().toString().trim();
         final String gender = userGender.getSelectedItem().toString().trim();
+        final String phone = therapistTel.getText().toString().trim();
 
         if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(age) && !TextUtils.isEmpty(gender)) {
             mProgress.setMessage("Applying changes...");
@@ -80,6 +83,7 @@ public class UserProfile extends AppCompatActivity{
                 cureent_user_db.child("name").setValue(name);
                 cureent_user_db.child("age").setValue(age);
                 cureent_user_db.child("gender").setValue(gender);
+                cureent_user_db.child("telephone").setValue(phone);
 
                 mProgress.dismiss();
 
@@ -99,6 +103,8 @@ public class UserProfile extends AppCompatActivity{
         editor.putString("userName",userName.getText().toString());
         editor.putString("userAge",userAge.getText().toString());
         editor.putString("userGender",userGender.getSelectedItem().toString());
+        editor.putString("phone",therapistTel.getText().toString());
+
         editor.apply();
 
         Toast.makeText(this,"Saved!",Toast.LENGTH_LONG).show();

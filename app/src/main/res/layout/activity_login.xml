@@ -55,7 +55,7 @@
         android:textColor="@color/text" />
 
     <TextView
-        android:text="User name"
+        android:text="User email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewCurrentDateField"

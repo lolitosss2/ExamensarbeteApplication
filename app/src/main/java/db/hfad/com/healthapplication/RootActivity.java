@@ -126,6 +126,7 @@ public class RootActivity extends Activity{
             Intent setupIntent = new Intent(this,MainActivity.class);
             setupIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(setupIntent);
+            finish();
         }
     }
 
@@ -133,6 +134,7 @@ public class RootActivity extends Activity{
         Intent setupIntent = new Intent(this,HealthApp.class);
         setupIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(setupIntent);
+        finish();
     }
 
 

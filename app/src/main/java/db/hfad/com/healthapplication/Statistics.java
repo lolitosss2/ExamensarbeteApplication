@@ -433,26 +433,32 @@ System.out.print(sa.Sadness);
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
                 calendarInfo();
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
                 showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    private void sendEmail() {
+        startActivity(new Intent(Statistics.this,SendEmailActivity.class));
+    }
+
+    private void settingsInfo() {
+        startActivity(new Intent(Statistics.this,SettingsActivity.class));
     }
 
     private void statisticsInfo() {

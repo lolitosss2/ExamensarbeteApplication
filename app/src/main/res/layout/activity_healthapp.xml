@@ -3,93 +3,134 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/background">
 
-    <Button
-        android:text="Settings"
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/buttonStatisticsField"
-        android:layout_alignLeft="@+id/buttonStatisticsField"
-        android:layout_alignStart="@+id/buttonStatisticsField"
-        android:layout_marginTop="16dp"
-        android:id="@+id/buttonSettingsField"
-        android:background="@drawable/button"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal|bold"
-        android:textSize="20sp"/>
-
-    <Button
-        android:text="Emergency"
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/buttonEmergencyField"
-        android:layout_below="@+id/buttonSettingsField"
-        android:layout_alignLeft="@+id/buttonSettingsField"
-        android:layout_alignStart="@+id/buttonSettingsField"
-        android:background="@drawable/buttonemergency"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal|bold"
-        android:textSize="20sp"/>
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:id="@+id/nameField"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text"
-        android:layout_width="wrap_content"
-        android:layout_marginRight="51dp"
-        android:layout_marginEnd="51dp"
-        android:layout_alignBaseline="@+id/textField"
-        android:layout_alignBottom="@+id/textField"
-        android:layout_alignRight="@+id/buttonEnterValuesField"
-        android:layout_alignEnd="@+id/buttonEnterValuesField" />
-
-    <Button
-        android:text="Statistics"
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:id="@+id/buttonStatisticsField"
-        android:background="@drawable/button"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal|bold"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/buttonEnterValuesField"
-        android:layout_alignStart="@+id/buttonEnterValuesField" />
-
-    <Button
-        android:text="Enter values"
-        android:layout_height="60dp"
-        android:id="@+id/buttonEnterValuesField"
-        android:background="@drawable/button"
-        android:layout_width="280dp"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        android:fontFamily="sans-serif"
-        android:textStyle="normal|bold"
-        android:textSize="20sp"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/buttonStatisticsField"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="@string/hej_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:id="@+id/textField"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/buttonEnterValuesField"
-        android:layout_alignStart="@+id/buttonEnterValuesField" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp">
+
+            <TextView
+                android:text="@string/hej_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textField"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_alignParentTop="false"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/nameField"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Enter values"
+            android:layout_height="60dp"
+            android:id="@+id/buttonEnterValuesField"
+            android:background="@drawable/button"
+            android:layout_width="match_parent"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Statistics"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/buttonStatisticsField"
+            android:background="@drawable/button"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Settings"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/buttonSettingsField"
+            android:background="@drawable/button"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Emergency"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/buttonEmergencyField"
+            android:background="@drawable/buttonemergency"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
 
 </RelativeLayout>

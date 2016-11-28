@@ -12,11 +12,14 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,14 +63,16 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
     private Date date;
     private String currentDateTimeString;
 
-
-
     public static TextView Date;
+
+    private GestureDetectorCompat gestureObject;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drugsandalcohol);
+
+        gestureObject = new GestureDetectorCompat(this, new DrugsandAlcoholActivity.LearnGesture());
 
         database = FirebaseDatabase.getInstance();
         mDatabaseDrugsAlcohol = FirebaseDatabase.getInstance().getReference().child("DrugsAlcohol");
@@ -197,27 +202,33 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
                calendarInfo();
                 //TODO
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
                 showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    private void sendEmail() {
+        startActivity(new Intent(DrugsandAlcoholActivity.this,SendEmailActivity.class));
+    }
+
+    private void settingsInfo() {
+        startActivity(new Intent(DrugsandAlcoholActivity.this,SettingsActivity.class));
     }
 
     private void statisticsInfo() {
@@ -302,6 +313,35 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
     public void edit2Data(View view){
         MQ.setVisibility(View.INVISIBLE);
         medicationQuantity.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureObject.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            if(event2.getX() > event1.getX()){
+               /* Intent intent = new Intent(FeelingsSecondActivity.this,DrugsandAlcoholActivity.class);
+                finish();
+                startActivity(intent);*/
+                Intent intent = new Intent(DrugsandAlcoholActivity.this,FeelingsSecondActivity.class);
+                //finish();
+                startActivity(intent);
+
+            }else
+            if(event2.getX()<event1.getX()){
+
+
+            }
+            return true;
+
+        }
     }
 
 }

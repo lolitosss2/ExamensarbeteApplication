@@ -10,13 +10,17 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,11 +61,17 @@ public class HealthApp extends AppCompatActivity {
     private Button Settings;
     private Button Emergency;
 
+    private Boolean exit = false;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_healthapp);
+
+
 
 
         text = (TextView) findViewById(R.id.nameField);
@@ -109,6 +119,13 @@ public class HealthApp extends AppCompatActivity {
                 startActivity(new Intent(HealthApp.this,Statistics.class));
             }
         });
+
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HealthApp.this,SettingsActivity.class));
+            }
+        });
     }
     /*
      * Calling menu activity
@@ -144,25 +161,33 @@ public class HealthApp extends AppCompatActivity {
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
                 calendarInfo();
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
-               showDiagram();
+                showDiagram();
                 return true;
             case R.id.action_settings:
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void sendEmail() {
+        startActivity(new Intent(HealthApp.this,SendEmailActivity.class));
+    }
+
+    private void settingsInfo() {
+        startActivity(new Intent(HealthApp.this,SettingsActivity.class));
     }
 
     private void statisticsInfo() {
@@ -194,4 +219,29 @@ public class HealthApp extends AppCompatActivity {
         startActivity(new Intent(HealthApp.this, MainActivity.class));
         finish();
     }
+    @Override
+    public void onBackPressed() {
+        if (exit) {
+            finish();
+        } else {
+            Toast.makeText(this, "Press Back again to Exit",
+                    Toast.LENGTH_SHORT).show();
+            //android.os.Process.killProcess(android.os.Process.myPid());
+            exit = true;
+            //System.exit(0);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    exit = false;
+                }
+            }, 3 * 1000);
+
+
+        }
+
+    }
+
+
+
+
 }

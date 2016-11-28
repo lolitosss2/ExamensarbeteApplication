@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -53,10 +56,14 @@ public class FeelingsActivity extends AppCompatActivity{
     private String currentDateTimeString;
 
     public static TextView Date;
+
+    private GestureDetectorCompat gestureObject;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feelings);
+
+        gestureObject = new GestureDetectorCompat(this, new FeelingsActivity.LearnGesture());
 
         database = FirebaseDatabase.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings");
@@ -252,27 +259,34 @@ public class FeelingsActivity extends AppCompatActivity{
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
                 calendarInfo();
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
                 showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void sendEmail() {
+        startActivity(new Intent(FeelingsActivity.this,SendEmailActivity.class));
+    }
+
+    private void settingsInfo() {
+        startActivity(new Intent(FeelingsActivity.this,SettingsActivity.class));
+    }
+
     private void statisticsInfo() {
         startActivity(new Intent(FeelingsActivity.this, StatisticsActivity.class));
     }
@@ -322,4 +336,37 @@ public class FeelingsActivity extends AppCompatActivity{
         }
         return sb.toString();
     }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureObject.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            if(event2.getX() > event1.getX()){
+
+                Intent intent = new Intent(FeelingsActivity.this,SelfHarmActivity.class);
+                //finish();
+                startActivity(intent);
+            }else
+            if(event2.getX()<event1.getX()){
+
+                Intent intent = new Intent(FeelingsActivity.this,FeelingsSecondActivity.class);
+                //finish();
+                startActivity(intent);
+
+
+            }
+            return true;
+
+        }
+    }
+
+
 }
