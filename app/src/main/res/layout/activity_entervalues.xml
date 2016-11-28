@@ -5,130 +5,136 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textViewCurrentDateField"
-        android:textColor="@color/text"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/textViewEntryField"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:text="@string/entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEntryField"
+            android:textSize="48sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignTop="@+id/buttonSmiley8Field"
-        android:layout_alignLeft="@+id/buttonSmiley4Field"
-        android:layout_alignStart="@+id/buttonSmiley4Field"
-        android:id="@+id/buttonSmiley7Field"
-        android:background="@drawable/smiley7" />
+        <TextView
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley2Field"
-        android:background="@drawable/smiley2"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewCurrentDateField"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/textViewEntryField"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley5Field"
-        android:background="@drawable/smiley5"
-        android:layout_below="@+id/buttonSmiley2Field"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:text="Select Today's Feelings"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/buttonSmiley8Field"
-        android:background="@drawable/smiley8"
-        android:layout_below="@+id/buttonSmiley5Field"
-        android:layout_alignLeft="@+id/buttonSmiley5Field"
-        android:layout_alignStart="@+id/buttonSmiley5Field" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley3Field"
-        android:background="@drawable/smiley3"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
-        android:layout_above="@+id/buttonSmiley5Field"
-        android:layout_toRightOf="@+id/textViewEntryField"
-        android:layout_toEndOf="@+id/textViewEntryField" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley6Field"
-        android:background="@drawable/smiley6"
-        android:layout_above="@+id/buttonSmiley8Field"
-        android:layout_alignLeft="@+id/buttonSmiley3Field"
-        android:layout_alignStart="@+id/buttonSmiley3Field" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley1Field"
+                android:background="@drawable/smiley1"
+                android:layout_weight="1" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley1Field"
-        android:background="@drawable/smiley1"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_above="@+id/buttonSmiley5Field"
-        android:layout_toLeftOf="@+id/textViewEntryField"
-        android:layout_toStartOf="@+id/textViewEntryField" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley4Field"
+                android:background="@drawable/smiley4"
+                android:layout_weight="1" />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley4Field"
-        android:background="@drawable/smiley4"
-        android:layout_alignBaseline="@+id/buttonSmiley5Field"
-        android:layout_alignBottom="@+id/buttonSmiley5Field"
-        android:layout_alignLeft="@+id/buttonSmiley1Field"
-        android:layout_alignStart="@+id/buttonSmiley1Field"
-        android:layout_marginBottom="500dp" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley9Field"
+                android:background="@drawable/smiley9"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/buttonSmiley9Field"
-        android:background="@drawable/smiley9"
-        android:layout_alignBaseline="@+id/buttonSmiley8Field"
-        android:layout_alignBottom="@+id/buttonSmiley8Field"
-        android:layout_alignLeft="@+id/buttonSmiley6Field"
-        android:layout_alignStart="@+id/buttonSmiley6Field"
-        android:layout_marginTop="500dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:id="@+id/textView"
-        android:text="Select Today's Feelings"
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text"
-        android:layout_below="@+id/textViewCurrentDateField"
-        android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley7Field"
+                android:background="@drawable/smiley7"
+                android:layout_weight="1" />
 
-    <TextView
-        android:text="@string/entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewEntryField"
-        android:textSize="48sp"
-        android:textStyle="normal|bold"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley2Field"
+                android:background="@drawable/smiley2"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley5Field"
+                android:background="@drawable/smiley5"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley8Field"
+                android:background="@drawable/smiley8"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley3Field"
+                android:background="@drawable/smiley3"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley6Field"
+                android:background="@drawable/smiley6"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

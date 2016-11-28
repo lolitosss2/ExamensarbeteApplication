@@ -3,10 +3,12 @@ package db.hfad.com.healthapplication;
 import android.content.Intent;
 
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -22,25 +24,29 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference mDatabaseUsers;
+    private DatabaseReference mDatabaseEnterValues;
     private FirebaseAuth mAuth;
 
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        loginBtn=(Button) findViewById(R.id.log_in_btn);
-        createAccountBtn = (Button)findViewById(R.id.create_account_btn);
 
         database = FirebaseDatabase.getInstance();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users");
+        mDatabaseEnterValues = FirebaseDatabase.getInstance().getReference().child("EnterValues");
 
         mAuth = FirebaseAuth.getInstance();
 
         checkUserExist();
 
+        setContentView(R.layout.activity_main);
+        loginBtn=(Button) findViewById(R.id.log_in_btn);
+        createAccountBtn = (Button)findViewById(R.id.create_account_btn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,9 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if (dataSnapshot.hasChild(user_id)) {
 
-                        Intent setupIntent = new Intent(MainActivity.this, HealthApp.class);
-                        setupIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(setupIntent);
+                        check();
+
 
                     }
                 }
@@ -79,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private void check(){
+        Intent setupIntent = new Intent(this,HealthApp.class);
+        setupIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(setupIntent);
     }
 
 

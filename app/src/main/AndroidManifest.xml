@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="db.hfad.com.healthapplication">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -9,13 +12,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".RootActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".HealthApp"></activity>
@@ -26,6 +30,10 @@
         <activity android:name=".FeelingsActivity"></activity>
         <activity android:name=".FeelingsSecondActivity"></activity>
         <activity android:name=".DrugsandAlcoholActivity"></activity>
+        <activity android:name=".Statistics"></activity>
+        <activity android:name=".StatisticsActivity"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SendEmailActivity"></activity>
     </application>
 
 </manifest>

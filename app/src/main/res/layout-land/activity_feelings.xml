@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEntryField"
+            android:textSize="48sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:text="Feelings"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewCurrentDateField"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/textViewEntryField"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="Sadness:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewSadness"
+            android:textSize="14sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarSadnessField"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:thumb="@drawable/thumb"
+            android:minHeight="6dip"
+            android:maxHeight="6dip"
+            android:progressDrawable="@drawable/custom_progress"
+            android:layout_width="match_parent"
+            android:paddingStart="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewSadnessPer"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp" />
+
+        <TextView
+            android:text="Anxiety:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAnxiety"
+            android:textSize="14sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarAnxietyField"
+            android:max="100"
+            android:thumb="@drawable/thumb"
+            android:minHeight="6dip"
+            android:maxHeight="6dip"
+            android:progressDrawable="@drawable/custom_progress"
+            android:paddingStart="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAnxietyPer"
+            android:text=""
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp" />
+
+        <TextView
+            android:text="Shame/Guilt:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewShame"
+            android:textSize="14sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarShameField"
+            android:max="100"
+            android:thumb="@drawable/thumb"
+            android:minHeight="6dip"
+            android:maxHeight="6dip"
+            android:progressDrawable="@drawable/custom_progress"
+            android:paddingStart="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewShamePer"
+            android:textStyle="normal|bold"
+            android:text=""
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEmptyness"
+            android:text="Emptyness:"
+            android:textSize="14sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarEmptynessField"
+            android:max="100"
+            android:thumb="@drawable/thumb"
+            android:minHeight="6dip"
+            android:maxHeight="6dip"
+            android:progressDrawable="@drawable/custom_progress"
+            android:paddingStart="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewEmptynessPer"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/buttonNext2"
+            android:background="@drawable/buttonnext"
+            android:rotation="270"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+
+</ScrollView>

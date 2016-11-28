@@ -1,20 +1,29 @@
 package db.hfad.com.healthapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -26,6 +35,9 @@ public class EnterValuesActivity extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
+
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
 
     public static TextView Date;
 
@@ -39,18 +51,35 @@ public class EnterValuesActivity extends AppCompatActivity{
     private Button Smiley8;
     private Button Smiley9;
 
+    private String feeling;
+    private String currentDateTimeString;
+    private DateFormat dateFormat;
+    private Date date;
+
+    private GestureDetectorCompat gestureObject;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entervalues);
 
+        gestureObject = new GestureDetectorCompat(this, new EnterValuesActivity.LearnGesture());
+
+        database = FirebaseDatabase.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("EnterValues");
+
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
 
+        dateFormat = new SimpleDateFormat("MM");
+        date = new Date();
+        //Log.d("Month",dateFormat.format(date));
+
         Date = (TextView)findViewById(R.id.textViewCurrentDateField);
 
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         Date.setText(currentDateTimeString);
+
 
         Smiley1 = (Button)findViewById(R.id.buttonSmiley1Field);
         Smiley2 = (Button)findViewById(R.id.buttonSmiley2Field);
@@ -62,64 +91,97 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley8 = (Button)findViewById(R.id.buttonSmiley8Field);
         Smiley9 = (Button)findViewById(R.id.buttonSmiley9Field);
 
-        //TODO numbers or smtg behind these faces or what?
-
         Smiley1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "happy";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "sad";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "indifferent";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "confused";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "crying";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "dizzy";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "inlove";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "scared";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
         Smiley9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                feeling = "angry";
+                recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
         });
 
 
+    }
+
+    private void recordFeeling(String feeling) {
+       if (!TextUtils.isEmpty(feeling)) {
+            if (mAuth.getCurrentUser() != null) {
+
+                String user_id = mAuth.getCurrentUser().getUid();
+                DatabaseReference cureent_user_db = mDatabase.child(user_id)
+                        .child(dateFormat.format(date))
+                        .child(currentDateTimeString);
+                cureent_user_db.setValue(feeling);
+
+            } else {
+
+                Toast.makeText(EnterValuesActivity.this, "Please fill all fields", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
      /*
@@ -131,6 +193,10 @@ public class EnterValuesActivity extends AppCompatActivity{
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.healthapp_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_previous);
+        item.setVisible(false);
+        MenuItem item1 = menu.findItem(R.id.action_next);
+        item1.setVisible(false);
         return true;
     }
     /*
@@ -140,6 +206,9 @@ public class EnterValuesActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
             case R.id.action_home:
                 homePage();
                 return true;
@@ -150,26 +219,52 @@ public class EnterValuesActivity extends AppCompatActivity{
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
-                //TODO
+                calendarInfo();
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
-                logout();
+                showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    private void sendEmail() {
+        startActivity(new Intent(EnterValuesActivity.this,SendEmailActivity.class));
+    }
+
+    private void settingsInfo() {
+        startActivity(new Intent(EnterValuesActivity.this,SettingsActivity.class));
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(EnterValuesActivity.this, StatisticsActivity.class));
+    }
+
+
+    private void calendarInfo() {
+        Calendar today = Calendar.getInstance();
+
+        Uri uriCalendar = Uri.parse("content://com.android.calendar/time/" + String.valueOf(today.getTimeInMillis()));
+        Intent intentCalendar = new Intent(Intent.ACTION_VIEW,uriCalendar);
+
+        //Use the native calendar app to view the date
+        startActivity(intentCalendar);
+        //startActivity(new Intent(HealthApp.this, CalendarActivity.class));
+    }
+
+    private void showDiagram() {
+        startActivity(new Intent(EnterValuesActivity.this, Statistics.class));
     }
 
     private void homePage() {
@@ -178,7 +273,6 @@ public class EnterValuesActivity extends AppCompatActivity{
 
     private void profileInfo() {
         startActivity(new Intent(EnterValuesActivity.this, UserProfile.class));
-
     }
 
     private void logout() {
@@ -186,4 +280,33 @@ public class EnterValuesActivity extends AppCompatActivity{
         startActivity(new Intent(EnterValuesActivity.this, MainActivity.class));
         finish();
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureObject.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            if(event2.getX() > event1.getX()){
+
+                Intent intent = new Intent(EnterValuesActivity.this,HealthApp.class);
+                //finish();
+                startActivity(intent);
+            }else
+            if(event2.getX()<event1.getX()){
+
+                Intent intent = new Intent(EnterValuesActivity.this,SelfHarmActivity.class);
+                //finish();
+                startActivity(intent);
+            }
+            return true;
+
         }
+    }
+
+}

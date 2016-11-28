@@ -1,21 +1,31 @@
 package db.hfad.com.healthapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -26,6 +36,8 @@ public class FeelingsActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
 
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
 
     private SeekBar seekBarSadness;
     private SeekBar seekBarAnxiety;
@@ -39,18 +51,32 @@ public class FeelingsActivity extends AppCompatActivity{
 
     private Button ButtonNext;
 
+    private DateFormat dateFormat;
+    private Date date;
+    private String currentDateTimeString;
+
     public static TextView Date;
+
+    private GestureDetectorCompat gestureObject;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feelings);
 
+        gestureObject = new GestureDetectorCompat(this, new FeelingsActivity.LearnGesture());
+
+        database = FirebaseDatabase.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings");
+
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
 
+        dateFormat = new SimpleDateFormat("MM");
+        date = new Date();
+
         Date = (TextView) findViewById(R.id.textViewCurrentDateField);
 
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         Date.setText(currentDateTimeString);
 
         seekBarSadness = (SeekBar)findViewById(R.id.seekBarSadnessField);
@@ -94,6 +120,7 @@ public class FeelingsActivity extends AppCompatActivity{
             public void onStopTrackingTouch(SeekBar seekBar) {
                 String resultText = progress + " %" /*+ seekBar.getMax()*/;
                 textViewSadness.setText(resultText);
+                recordFeeling(resultText,"Sadness");
             }
         });
 
@@ -117,6 +144,7 @@ public class FeelingsActivity extends AppCompatActivity{
             public void onStopTrackingTouch(SeekBar seekBar) {
                 String resultText = progress + " %" /*+ seekBar.getMax()*/;
                 textViewAnxiety.setText(resultText);
+                recordFeeling(resultText,"Anxiety");
             }
         });
 
@@ -142,6 +170,7 @@ public class FeelingsActivity extends AppCompatActivity{
             public void onStopTrackingTouch(SeekBar seekBar) {
                 String resultText = progress + " %" /*+ seekBar.getMax()*/;
                 textViewShame.setText(resultText);
+                recordFeeling(resultText,"Shame");
             }
         });
 
@@ -165,6 +194,7 @@ public class FeelingsActivity extends AppCompatActivity{
             public void onStopTrackingTouch(SeekBar seekBar) {
                 String resultText = progress + " %" /*+ seekBar.getMax()*/;
                 textViewEmptyness.setText(resultText);
+                recordFeeling(resultText,"Emptyness");
             }
         });
 
@@ -172,6 +202,25 @@ public class FeelingsActivity extends AppCompatActivity{
 
 
 
+    }
+
+    private void recordFeeling(String percentage, String feeling) {
+        percentage = stripNonDigits(percentage);
+        if (!TextUtils.isEmpty(percentage)) {
+            if (mAuth.getCurrentUser() != null) {
+
+                String user_id = mAuth.getCurrentUser().getUid();
+                DatabaseReference cureent_user_db = mDatabase.child(user_id)
+                        .child(feeling)
+                        .child(dateFormat.format(date))
+                        .child(currentDateTimeString);
+                cureent_user_db.setValue(percentage);
+
+            } else {
+
+                Toast.makeText(FeelingsActivity.this, "Please fill all fields", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
      /*
@@ -183,6 +232,8 @@ public class FeelingsActivity extends AppCompatActivity{
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.healthapp_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_next);
+        item.setVisible(false);
         return true;
     }
     /*
@@ -192,8 +243,11 @@ public class FeelingsActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_next:
-                nextPage();
+            case R.id.action_statisticseach:
+                statisticsInfo();
+                return true;
+            case R.id.action_previous:
+                previousPage();
                 return true;
             case R.id.action_home:
                 homePage();
@@ -205,30 +259,55 @@ public class FeelingsActivity extends AppCompatActivity{
                 logout();
                 return true;
             case R.id.action_appSettings:
-                //TODO
+                settingsInfo();
                 return true;
             case R.id.action_calender:
-                //TODO
+                calendarInfo();
                 return true;
-            case R.id.action_help:
+            case R.id.action_notes:
                 //TODO
                 return true;
             case R.id.action_sendEmail:
-                //TODO
+                sendEmail();
                 return true;
             case R.id.action_statistics:
-                logout();
+                showDiagram();
                 return true;
             case R.id.action_settings:
-                //TODO
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void sendEmail() {
+        startActivity(new Intent(FeelingsActivity.this,SendEmailActivity.class));
+    }
 
-    private void nextPage() {
-        startActivity(new Intent(FeelingsActivity.this, FeelingsSecondActivity.class));
+    private void settingsInfo() {
+        startActivity(new Intent(FeelingsActivity.this,SettingsActivity.class));
+    }
+
+    private void statisticsInfo() {
+        startActivity(new Intent(FeelingsActivity.this, StatisticsActivity.class));
+    }
+
+    private void calendarInfo() {
+        Calendar today = Calendar.getInstance();
+
+        Uri uriCalendar = Uri.parse("content://com.android.calendar/time/" + String.valueOf(today.getTimeInMillis()));
+        Intent intentCalendar = new Intent(Intent.ACTION_VIEW,uriCalendar);
+
+        //Use the native calendar app to view the date
+        startActivity(intentCalendar);
+        //startActivity(new Intent(HealthApp.this, CalendarActivity.class));
+    }
+
+    private void showDiagram() {
+        startActivity(new Intent(FeelingsActivity.this, Statistics.class));
+    }
+
+    private void previousPage() {
+        startActivity(new Intent(FeelingsActivity.this, SelfHarmActivity.class));
     }
 
     private void homePage() {
@@ -237,7 +316,6 @@ public class FeelingsActivity extends AppCompatActivity{
 
     private void profileInfo() {
         startActivity(new Intent(FeelingsActivity.this, UserProfile.class));
-
     }
 
     private void logout() {
@@ -245,4 +323,50 @@ public class FeelingsActivity extends AppCompatActivity{
         startActivity(new Intent(FeelingsActivity.this, MainActivity.class));
         finish();
     }
+
+    public static String stripNonDigits(
+            final CharSequence input /* inspired by seh's comment */){
+        final StringBuilder sb = new StringBuilder(
+                input.length() /* also inspired by seh's comment */);
+        for(int i = 0; i < input.length(); i++){
+            final char c = input.charAt(i);
+            if(c > 47 && c < 58){
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureObject.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            if(event2.getX() > event1.getX()){
+
+                Intent intent = new Intent(FeelingsActivity.this,SelfHarmActivity.class);
+                //finish();
+                startActivity(intent);
+            }else
+            if(event2.getX()<event1.getX()){
+
+                Intent intent = new Intent(FeelingsActivity.this,FeelingsSecondActivity.class);
+                //finish();
+                startActivity(intent);
+
+
+            }
+            return true;
+
+        }
+    }
+
+
 }

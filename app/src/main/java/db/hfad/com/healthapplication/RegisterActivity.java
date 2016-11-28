@@ -32,6 +32,8 @@ public class RegisterActivity extends Activity{
 
     private ProgressDialog mProgress;
 
+
+
     private Button signUpButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
