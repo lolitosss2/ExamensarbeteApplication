@@ -167,7 +167,7 @@ public class HealthApp extends AppCompatActivity {
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -180,6 +180,10 @@ public class HealthApp extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void takeNote() {
+        startActivity(new Intent(HealthApp.this,NotesActivity.class));
     }
 
     private void sendEmail() {

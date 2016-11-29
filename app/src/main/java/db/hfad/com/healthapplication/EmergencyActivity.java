@@ -110,6 +110,13 @@ public class EmergencyActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        YourStrategies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EmergencyActivity.this,YourStrategiesActivity.class));
+            }
+        });
     }
 
      /*
@@ -154,7 +161,7 @@ public class EmergencyActivity extends AppCompatActivity {
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -168,6 +175,10 @@ public class EmergencyActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(EmergencyActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(EmergencyActivity.this,SendEmailActivity.class));
     }

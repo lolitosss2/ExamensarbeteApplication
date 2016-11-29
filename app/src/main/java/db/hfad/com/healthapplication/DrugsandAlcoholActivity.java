@@ -206,10 +206,9 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
                 return true;
             case R.id.action_calender:
                calendarInfo();
-                //TODO
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -223,6 +222,10 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(DrugsandAlcoholActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(DrugsandAlcoholActivity.this,SendEmailActivity.class));
     }

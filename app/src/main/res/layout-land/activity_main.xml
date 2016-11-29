@@ -23,6 +23,10 @@
             android:id="@+id/appname_textview"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
             android:textAlignment="center" />
 
         <Space

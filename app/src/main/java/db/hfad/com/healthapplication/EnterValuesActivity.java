@@ -225,7 +225,7 @@ public class EnterValuesActivity extends AppCompatActivity{
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -239,6 +239,10 @@ public class EnterValuesActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(EnterValuesActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(EnterValuesActivity.this,SendEmailActivity.class));
     }

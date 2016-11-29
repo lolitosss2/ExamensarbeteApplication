@@ -265,7 +265,7 @@ public class FeelingsActivity extends AppCompatActivity{
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -279,6 +279,10 @@ public class FeelingsActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(FeelingsActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(FeelingsActivity.this,SendEmailActivity.class));
     }

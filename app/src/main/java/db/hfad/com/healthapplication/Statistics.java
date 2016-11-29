@@ -439,7 +439,7 @@ System.out.print(sa.Sadness);
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -453,6 +453,10 @@ System.out.print(sa.Sadness);
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(Statistics.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(Statistics.this,SendEmailActivity.class));
     }

@@ -212,7 +212,7 @@ public class SelfHarmActivity extends AppCompatActivity {
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -226,6 +226,10 @@ public class SelfHarmActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(SelfHarmActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(SelfHarmActivity.this,SendEmailActivity.class));
     }
