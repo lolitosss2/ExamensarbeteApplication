@@ -264,6 +264,9 @@ public class FeelingsActivity extends AppCompatActivity{
             case R.id.action_calender:
                 calendarInfo();
                 return true;
+            case R.id.action_emergency:
+                emergencyInfo();
+                return true;
             case R.id.action_notes:
                 takeNote();
                 return true;
@@ -279,6 +282,11 @@ public class FeelingsActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void emergencyInfo() {
+        startActivity(new Intent(FeelingsActivity.this,EmergencyActivity.class));
+    }
+
     private void takeNote() {
         startActivity(new Intent(FeelingsActivity.this,NotesActivity.class));
     }

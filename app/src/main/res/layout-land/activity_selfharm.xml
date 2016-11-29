@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/seekBarQuestion1Field"
             android:max="100"
-            android:thumb="@drawable/thumb"
+            android:thumb="@drawable/redarrow"
             android:minHeight="6dip"
             android:maxHeight="6dip"
             android:progressDrawable="@drawable/custom_progress"
@@ -186,7 +186,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/seekBarQuestion3Field"
             android:max="100"
-            android:thumb="@drawable/thumb"
+            android:thumb="@drawable/redarrow"
             android:minHeight="6dip"
             android:maxHeight="6dip"
             android:progressDrawable="@drawable/custom_progress"
@@ -222,8 +222,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/buttonNext0"
-            android:background="@drawable/buttonnext"
-            android:rotation="270"
+            android:background="@drawable/buttonmove"
             android:layout_gravity="center_horizontal" />
 
         <Space

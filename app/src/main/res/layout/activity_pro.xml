@@ -191,7 +191,7 @@
                     android:text="@string/done_btn"
                     android:layout_height="60dp"
                     android:id="@+id/DoneBtnField"
-                    android:background="@drawable/button"
+                    android:background="@drawable/buttonblue"
                     android:layout_width="wrap_content"
                     android:fontFamily="sans-serif"
                     android:textStyle="normal|bold"
