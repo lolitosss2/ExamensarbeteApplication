@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<transition xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@drawable/smiley2"/>
-    <item android:drawable="@drawable/smiley1"/>
-
-</transition>

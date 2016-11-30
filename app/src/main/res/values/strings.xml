@@ -24,6 +24,7 @@
     <string name="gender_textview">Gender:</string>
     <string name="done_btn">Done</string>
     <string name="entry">Entry</string>
+    <string name="sendemail">Send Email</string>
     <string-array name="gender_edittext">
         <item>Female</item>
         <item>Male</item>
