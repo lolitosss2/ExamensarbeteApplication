@@ -58,7 +58,7 @@
             android:text="Enter values"
             android:layout_height="60dp"
             android:id="@+id/buttonEnterValuesField"
-            android:background="@drawable/button"
+            android:background="@drawable/buttonblue"
             android:layout_width="match_parent"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:fontFamily="sans-serif"
