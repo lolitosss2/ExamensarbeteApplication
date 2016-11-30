@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp">
+
+            <TextView
+                android:text="@string/hej_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textField"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_alignParentTop="false"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/nameField"
+                android:textSize="24sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Enter values"
+            android:layout_height="60dp"
+            android:id="@+id/buttonEnterValuesField"
+            android:background="@drawable/buttonblue"
+            android:layout_width="match_parent"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Statistics"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/buttonStatisticsField"
+            android:background="@drawable/buttonblue"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Settings"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/buttonSettingsField"
+            android:background="@drawable/buttonblue"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Emergency"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/buttonEmergencyField"
+            android:background="@drawable/buttonred"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+</RelativeLayout>

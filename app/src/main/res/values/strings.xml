@@ -1,3 +1,48 @@
 <resources>
-    <string name="app_name">HealthApplication</string>
+    <string name="app_name">TrackYourself</string>
+    <string name="healthapp_textview">TrackYourself</string>
+    <string name="log_in_btn">Login</string>
+    <string name="sign_up_btn">Sign up</string>
+    <string name="login_enter_button">Login</string >
+    <string name="write_your_name_register_edittext">Write your name...</string>
+    <string name="write_your_email_register_edittext">Write your email...</string>
+    <string name="write_your_password_register_edittext">Write your password...</string>
+    <string name="sign_up_register_btn">Sign up</string>
+    <string name="hej_textview">Welcome</string>
+    <string name="add_post">Add Post</string>
+    <string name="calender">Calender</string>
+    <string name="help">Notes</string>
+    <string name="log_out">Log Out</string>
+    <string name="send_email">Send email</string>
+    <string name="settings">Settings</string>
+    <string name="statistics">Statistics</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="name_user_textview">Name:</string>
+    <string name="age_textview">Age:</string>
+    <string name="write_your_name_textview_profile">Write your name...</string>
+    <string name="write_your_age_edittext_profile">Write your age...</string>
+    <string name="gender_textview">Gender:</string>
+    <string name="done_btn">Done</string>
+    <string name="entry">Entry</string>
+    <string name="sendemail">Send Email</string>
+    <string-array name="gender_edittext">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Do not want to answer</item>
+    </string-array>
+    <string name="names"><![CDATA[<p><h2>
+When impulses of harming yourself get very strong and you can’t think clearly, do this:
+</h2></p><p>&#8226; Take some ice cubes in your hand and let them melt
+<br />&#8226; Take a cold shower<br />&#8226; Rope-skip<br />&#8226; Do push-ups<br />&#8226; Do sit-ups</p>]]>
+        <![CDATA[<p><h2>
+When you are afraid for your own safety:
+</h2></p><p>&#8226;
+Talk to a friend
+<br />&#8226; Call your therapist<br />&#8226; Call 911</p>]]>
+    </string>
+
+
+
+
+
 </resources>

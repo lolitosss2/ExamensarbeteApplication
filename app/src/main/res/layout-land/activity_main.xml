@@ -31,7 +31,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="80dp" />
 
         <Button
             android:text="@string/sign_up_btn"
@@ -43,10 +43,10 @@
             android:fontFamily="sans-serif"
             android:textStyle="normal|bold"
             android:textSize="20sp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginStart="30dp" />
+            android:layout_marginEnd="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginStart="60dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -63,10 +63,10 @@
             android:textStyle="normal|bold"
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginStart="30dp" />
+            android:layout_marginEnd="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginStart="60dp" />
     </LinearLayout>
 
 </RelativeLayout>

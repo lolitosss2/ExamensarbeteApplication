@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+    <item android:id="@+id/action_previous"
+        android:icon="@drawable/previousbutton"
+        android:title="@string/add_post"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_next"
+    android:icon="@drawable/nextbutton"
+    android:title="whatevert"
+    app:showAsAction="ifRoom" />
+
+
+    <item android:id="@+id/action_home"
+        android:icon="@drawable/homee"
+        android:title="@string/add_post"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/settings"
+        >
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+
+        <item android:id="@+id/action_profile"
+            android:title="Profile"
+             />
+
+        <item android:id="@+id/action_appSettings"
+            android:title="Settings"
+            android:icon="@mipmap/ic_settings_black_24dp"
+            app:showAsAction="never"
+
+                />
+    </menu>
+
+    </item>
+
+
+    <item android:id="@+id/action_logout"
+        android:title="@string/log_out"
+
+        />
+
+    <item android:id="@+id/action_notes"
+        android:title="@string/help" />
+
+    <item android:id="@+id/action_emergency"
+        android:title="Emergency" />
+
+    <item android:id="@+id/action_calender"
+        android:title="@string/calender"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_statistics"
+        android:title="@string/statistics"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/action_sendEmail"
+        android:title="@string/send_email"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_statisticseach"
+        android:title="DataAnalys"
+        app:showAsAction="never" />
+
+
+</menu>

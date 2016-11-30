@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="db.hfad.com.healthapplication.MainActivity"
     android:background="@color/background">
-
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:text="@string/healthapp_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/appname_textview"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="24sp"
-            android:textStyle="normal|bold"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/text"
-            android:textAlignment="center" />
+        android:layout_height="match_parent">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="200dp" />
 
         <Button
-            android:text="@string/sign_up_btn"
+            android:text="Contact Therapist"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/create_account_btn"
+            android:id="@+id/buttonTherapistField"
             android:background="@drawable/buttonblue"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/buttonStrategiesField"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:text="Your Strategies"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/buttonStrategiesField"
+            android:background="@drawable/buttonblue"
+            android:layout_width="match_parent"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:fontFamily="sans-serif"
             android:textStyle="normal|bold"
@@ -53,16 +56,18 @@
             android:layout_height="30dp" />
 
         <Button
-            android:id="@+id/log_in_btn"
-            android:text="@string/log_in_btn"
-            android:background="@drawable/buttonblue"
+            android:text="Call 911"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:id="@+id/buttonCall911Field"
+            android:background="@drawable/buttonred"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:fontFamily="sans-serif"
             android:textStyle="normal|bold"
             android:textSize="20sp"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/buttonTherapistField"
+            android:layout_alignLeft="@+id/buttonTherapistField"
+            android:layout_alignStart="@+id/buttonTherapistField"
             android:layout_marginEnd="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"

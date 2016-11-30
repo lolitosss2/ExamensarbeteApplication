@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="db.hfad.com.healthapplication.LoginActivity"
+    android:background="@color/background">
+
+
+    <Button
+        android:text="@string/login_enter_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:id="@+id/loginField"
+        android:background="@drawable/buttonblue"
+        android:layout_marginBottom="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"/>
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/passwordField"
+        android:layout_alignLeft="@+id/textViewCurrentDateField"
+        android:layout_alignStart="@+id/textViewCurrentDateField"
+        android:layout_marginTop="14dp"
+        android:id="@+id/textView2"
+        android:layout_toLeftOf="@+id/passwordField"
+        android:layout_toStartOf="@+id/passwordField"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordField"
+        android:background="@drawable/edittextborder"
+        android:layout_marginBottom="38dp"
+        android:layout_above="@+id/loginField"
+        android:layout_alignLeft="@+id/emailField"
+        android:layout_alignStart="@+id/emailField"
+        android:textColorHint="@color/text"
+        android:textColorLink="@color/text"
+        android:paddingLeft="20dp"
+        android:textColor="@color/text" />
+
+    <TextView
+        android:text="User email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewCurrentDateField"
+        android:textColor="@color/text"
+        android:textStyle="normal|bold"
+        android:textSize="24sp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif"
+        android:layout_alignBaseline="@+id/emailField"
+        android:layout_alignBottom="@+id/emailField"
+        android:layout_toLeftOf="@+id/emailField"
+        android:layout_toStartOf="@+id/emailField" />
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailField"
+        android:background="@drawable/edittextborder"
+        android:layout_height="60dp"
+        android:layout_width="200dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:textColorHint="@color/text"
+        android:textColorLink="@color/text"
+        android:paddingLeft="20dp"
+        android:layout_above="@+id/passwordField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/text" />
+</RelativeLayout>

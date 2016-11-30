@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+
+    <TextView
+        android:text="@string/entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEntryField"
+        android:textSize="48sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textViewCurrentDateField"
+        android:textColor="@color/text"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textViewEntryField"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textViewDrugsandAlcohol"
+        android:text="Drugs and Alcohol"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_below="@+id/textViewCurrentDateField"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Alcohol, quantity:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="97dp"
+        android:id="@+id/textViewAlcoholQuantity"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_below="@+id/textViewDrugsandAlcohol"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp" />
+
+    <EditText
+        android:layout_width="70dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextAlcoholField"
+        android:background="@drawable/edittextborder"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/textViewAlcoholQuantity"
+        android:layout_toRightOf="@+id/textViewDrugsandAlcohol"
+        android:layout_toEndOf="@+id/textViewDrugsandAlcohol"
+        android:paddingLeft="20dp"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textColorLink="@color/text" />
+
+    <TextView
+        android:text="Reliever medication:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextAlcoholField"
+        android:layout_alignLeft="@+id/textViewAlcoholQuantity"
+        android:layout_alignStart="@+id/textViewAlcoholQuantity"
+        android:layout_marginTop="49dp"
+        android:id="@+id/textViewRelieverMedField"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <TextView
+        android:text="Name:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewRelieverMedField"
+        android:layout_alignLeft="@+id/textViewRelieverMedField"
+        android:layout_alignStart="@+id/textViewRelieverMedField"
+        android:layout_marginTop="31dp"
+        android:id="@+id/textViewMedicationNameField"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTextMedicationNameField"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edittextborder"
+        android:layout_alignTop="@+id/textViewMedicationNameField"
+        android:layout_alignLeft="@+id/textViewDrugsandAlcohol"
+        android:layout_alignStart="@+id/textViewDrugsandAlcohol"
+        android:layout_alignRight="@+id/editTextAlcoholField"
+        android:layout_alignEnd="@+id/editTextAlcoholField"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textColorLink="@color/text"/>
+
+    <TextView
+        android:text="Quantity:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextMedicationNameField"
+        android:layout_alignLeft="@+id/textViewMedicationNameField"
+        android:layout_alignStart="@+id/textViewMedicationNameField"
+        android:layout_marginTop="25dp"
+        android:id="@+id/textViewQuantityField"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <EditText
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignTop="@+id/textViewQuantityField"
+        android:layout_alignRight="@+id/editTextMedicationNameField"
+        android:layout_alignEnd="@+id/editTextMedicationNameField"
+        android:id="@+id/editTextQuantityField"
+        android:background="@drawable/edittextborder"
+        android:layout_width="50dp"
+        android:layout_alignLeft="@+id/editTextAlcoholField"
+        android:layout_alignStart="@+id/editTextAlcoholField"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textColorLink="@color/text"
+        android:paddingLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewAlcoholQuantity"
+        android:layout_alignLeft="@+id/editTextAlcoholField"
+        android:layout_alignStart="@+id/editTextAlcoholField"
+        android:id="@+id/textViewaqField"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewMedicationNameField"
+        android:layout_alignRight="@+id/textViewEntryField"
+        android:layout_alignEnd="@+id/textViewEntryField"
+        android:id="@+id/textViewmnField"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewQuantityField"
+        android:layout_alignRight="@+id/editTextQuantityField"
+        android:layout_alignEnd="@+id/editTextQuantityField"
+        android:id="@+id/textViewmqField"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"/>
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/buttonEditField"
+        android:background="@android:drawable/ic_menu_edit"
+        android:onClick="editData"
+        android:layout_alignBaseline="@+id/editTextAlcoholField"
+        android:layout_alignBottom="@+id/editTextAlcoholField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/buttonEdit2Field"
+        android:background="@android:drawable/ic_menu_edit"
+        android:onClick="edit2Data"
+        android:layout_alignBaseline="@+id/textViewQuantityField"
+        android:layout_alignBottom="@+id/textViewQuantityField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/buttonDisplayField"
+        android:onClick="displayData"
+        android:background="@android:drawable/ic_menu_edit"
+        android:layout_alignBottom="@+id/textViewmnField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textViewDrugsandAlcohol"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:id="@+id/button3"
+        android:background="@android:drawable/ic_menu_save"
+        android:onClick="saveInfo" />
+
+
+</RelativeLayout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEntryField"
+            android:textSize="48sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewCurrentDateField"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/textViewEntryField"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewSelfHarm"
+            android:text="Self Harm"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Intensity of impulse to hurt yourself:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewQuestion1"
+                android:textSize="14sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_below="@+id/textViewSelfHarm"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="10dp" />
+
+        <SeekBar
+
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarQuestion1Field"
+            android:max="100"
+            android:thumb="@drawable/redarrow"
+            android:minHeight="6dip"
+            android:maxHeight="6dip"
+            android:progressDrawable="@drawable/custom_progress"
+            android:layout_width="match_parent"
+            android:paddingStart="25dp"
+            android:layout_below="@+id/textViewQuestion1"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/seekBarQuestion1Field"
+                android:layout_alignRight="@+id/seekBarQuestion1Field"
+                android:layout_alignEnd="@+id/seekBarQuestion1Field"
+                android:id="@+id/textViewQuestion1Per"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:textAlignment="textEnd"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Did you hurt yourself today?"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewQuestion2"
+                android:textSize="14sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text" />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBox"
+                android:button="@drawable/checkbox_selector"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="40dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewQuestion3"
+                android:text="Intensity of suicidal thoughts:"
+                android:textSize="14sp"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBarQuestion3Field"
+            android:max="100"
+            android:thumb="@drawable/redarrow"
+            android:minHeight="6dip"
+            android:maxHeight="6dip"
+            android:progressDrawable="@drawable/custom_progress"
+            android:paddingStart="25dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewQuestion3Per"
+                android:textStyle="normal|bold"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text"
+                android:layout_below="@+id/seekBarQuestion3Field"
+                android:layout_alignRight="@+id/textViewQuestion1Per"
+                android:layout_alignEnd="@+id/textViewQuestion1Per"
+                android:textAlignment="textEnd"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="30dp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/buttonNext0"
+            android:background="@drawable/buttonmove"
+            android:layout_centerVertical="false"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+</ScrollView>

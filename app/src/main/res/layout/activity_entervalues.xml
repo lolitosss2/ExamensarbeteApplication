@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewEntryField"
+            android:textSize="48sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/textViewCurrentDateField"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/textViewEntryField"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:text="Select Today's Feelings"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley1Field"
+                android:background="@drawable/sgladje"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley4Field"
+                android:background="@drawable/savsky"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley9Field"
+                android:background="@drawable/snyfikenhet"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley7Field"
+                android:background="@drawable/sforvaning"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley2Field"
+                android:background="@drawable/silska"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley5Field"
+                android:background="@drawable/ssorg"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley8Field"
+                android:background="@drawable/sskam"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley3Field"
+                android:background="@drawable/skar"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/buttonSmiley6Field"
+                android:background="@drawable/sradd"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
