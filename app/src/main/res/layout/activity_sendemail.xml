@@ -7,6 +7,23 @@
     android:background="@color/background">
 
     <TextView
+        android:text="Send Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView13"
+        android:textSize="48sp"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
         android:id="@+id/textViewPhoneNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +31,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/text"
         android:textStyle="normal|bold"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp" />
 
     <EditText
         android:id="@+id/editTextTo"
@@ -34,7 +53,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/text"
         android:textStyle="normal|bold"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/editTextSubject"
