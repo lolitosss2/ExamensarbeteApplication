@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">HealthApplication</string>
-    <string name="healthapp_textview">HealthApp</string>
+    <string name="app_name">TrackYourself</string>
+    <string name="healthapp_textview">TrackYourself</string>
     <string name="log_in_btn">Login</string>
     <string name="sign_up_btn">Sign up</string>
     <string name="login_enter_button">Login</string >
@@ -29,6 +29,19 @@
         <item>Male</item>
         <item>Do not want to answer</item>
     </string-array>
+    <string name="names"><![CDATA[<p><h2>
+When impulses of harming yourself get very strong and you can’t think clearly, do this:
+</h2></p><p>&#8226; Take some ice cubes in your hand and let them melt
+<br />&#8226; Take a cold shower<br />&#8226; Rope-skip<br />&#8226; Do push-ups<br />&#8226; Do sit-ups</p>]]>
+        <![CDATA[<p><h2>
+When you are afraid for your own safety:
+</h2></p><p>&#8226;
+Talk to a friend
+<br />&#8226; Call your therapist<br />&#8226; Call 911</p>]]>
+    </string>
+
+
+
 
 
 </resources>

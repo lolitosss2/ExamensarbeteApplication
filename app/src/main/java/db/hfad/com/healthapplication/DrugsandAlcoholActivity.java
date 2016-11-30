@@ -156,10 +156,10 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
                     Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
                     builder.appendPath("time");
                     ContentUris.appendId(builder, startMillis);
-                    Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
-                    startActivity(intent);
+                    //Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
+                    //startActivity(intent);
 
-                    //startActivity(new Intent(DrugsandAlcoholActivity.this, HealthApp.class));
+                    startActivity(new Intent(DrugsandAlcoholActivity.this, NotesActivity.class));
                 }
             } else {
             Toast.makeText(DrugsandAlcoholActivity.this,"Please fill all fields",Toast.LENGTH_LONG).show();
@@ -206,10 +206,12 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
                 return true;
             case R.id.action_calender:
                calendarInfo();
-                //TODO
+                return true;
+            case R.id.action_emergency:
+                emergencyInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -223,6 +225,15 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void emergencyInfo() {
+        startActivity(new Intent(DrugsandAlcoholActivity.this,EmergencyActivity.class));
+    }
+
+    private void takeNote() {
+        startActivity(new Intent(DrugsandAlcoholActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(DrugsandAlcoholActivity.this,SendEmailActivity.class));
     }

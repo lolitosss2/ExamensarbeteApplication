@@ -61,21 +61,21 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley1Field"
-                android:background="@drawable/smiley1"
+                android:background="@drawable/sgladje"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley4Field"
-                android:background="@drawable/smiley4"
+                android:background="@drawable/savsky"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley9Field"
-                android:background="@drawable/smiley9"
+                android:background="@drawable/snyfikenhet"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -89,21 +89,21 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley7Field"
-                android:background="@drawable/smiley7"
+                android:background="@drawable/sforvaning"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley2Field"
-                android:background="@drawable/smiley2"
+                android:background="@drawable/silska"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley5Field"
-                android:background="@drawable/smiley5"
+                android:background="@drawable/ssorg"
                 android:layout_centerHorizontal="true"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -118,21 +118,21 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley8Field"
-                android:background="@drawable/smiley8"
+                android:background="@drawable/sskam"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley3Field"
-                android:background="@drawable/smiley3"
+                android:background="@drawable/skar"
                 android:layout_weight="1" />
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/buttonSmiley6Field"
-                android:background="@drawable/smiley6"
+                android:background="@drawable/sradd"
                 android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>

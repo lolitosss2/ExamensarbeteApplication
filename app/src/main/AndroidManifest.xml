@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
+            >
+        </activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".HealthApp"></activity>
@@ -34,6 +36,10 @@
         <activity android:name=".StatisticsActivity"></activity>
         <activity android:name=".SettingsActivity"></activity>
         <activity android:name=".SendEmailActivity"></activity>
+        <activity android:name=".NotesActivity"></activity>
+        <activity android:name=".NoteActivity"></activity>
+        <activity android:name=".YourStrategiesActivity"></activity>
+
     </application>
 
 </manifest>

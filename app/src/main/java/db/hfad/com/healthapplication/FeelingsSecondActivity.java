@@ -226,8 +226,11 @@ public class FeelingsSecondActivity extends AppCompatActivity{
             case R.id.action_calender:
                 calendarInfo();
                 return true;
+            case R.id.action_emergency:
+                emergencyInfo();
+                return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -241,6 +244,15 @@ public class FeelingsSecondActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void emergencyInfo() {
+        startActivity(new Intent(FeelingsSecondActivity.this,EmergencyActivity.class));
+    }
+
+    private void takeNote() {
+        startActivity(new Intent(FeelingsSecondActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(FeelingsSecondActivity.this,SendEmailActivity.class));
     }

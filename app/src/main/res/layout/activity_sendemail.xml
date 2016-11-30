@@ -66,7 +66,7 @@
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="Send"
-        android:background="@drawable/button"
+        android:background="@drawable/buttonblue"
         android:layout_marginLeft="80dp"
         android:fontFamily="sans-serif"
         android:textStyle="normal|bold"

@@ -164,49 +164,49 @@ public class Statistics extends AppCompatActivity{
                 float sum8 = 0;
 
                 for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i).contains("sad")) {
+                    if (list.get(i).contains("Interest")) {
                         sum = sum +1;
                         chartView.addOrReplace("Interest", sum);
                        // chartView.addOrReplace("Sadness", sum);
                     }
-                    else if (list.get(i).contains("indifferent")) {
+                    else if (list.get(i).contains("Joy")) {
                         sum1 = sum1+1;
-                        chartView.addOrReplace("Anger", sum1);
+                        chartView.addOrReplace("Joy", sum1);
                         //chartView.addOrReplace("Indifference", sum1);
                     }
-                    else if (list.get(i).contains("dizzy")) {
+                    else if (list.get(i).contains("Surprise")) {
                         sum2 = sum2+1;
-                        chartView.addOrReplace("Contempt", sum2);
+                        chartView.addOrReplace("Surprise", sum2);
                         //chartView.addOrReplace("Dizziness", sum2);
                     }
-                    else if (list.get(i).contains("scared")) {
+                    else if (list.get(i).contains("Anger")) {
                         sum3 = sum3+1;
-                        chartView.addOrReplace("Disgust", sum3);
+                        chartView.addOrReplace("Anger", sum3);
                         //chartView.addOrReplace("Fear", sum3);
                     }
-                    else if (list.get(i).contains("happy")) {
+                    else if (list.get(i).contains("Fear")) {
                         sum4 = sum4+1;
-                        chartView.addOrReplace("Shame", sum4);
+                        chartView.addOrReplace("Fear", sum4);
                         //chartView.addOrReplace("Happiness", sum4);
                     }
-                    else if (list.get(i).contains("confused")) {
+                    else if (list.get(i).contains("Distress")) {
                         sum5 = sum5 + 1;
-                        chartView.addOrReplace("Joy", sum5);
+                        chartView.addOrReplace("Distress", sum5);
                         //chartView.addOrReplace("Confusion", sum5);
                     }
-                    else if (list.get(i).contains("crying")) {
+                    else if (list.get(i).contains("Shame")) {
                         sum6 = sum6 +1;
-                        chartView.addOrReplace("Sadness", sum6);
+                        chartView.addOrReplace("Shame", sum6);
                         //chartView.addOrReplace("Crying", sum6);
                     }
-                    else if (list.get(i).contains("inlove")) {
+                    else if (list.get(i).contains("Disgust")) {
                         sum7 = sum7 + 1;
-                        chartView.addOrReplace("Fear", sum7);
+                        chartView.addOrReplace("Disgust", sum7);
                         //chartView.addOrReplace("Inlove", sum7);
                     }
-                    else if (list.get(i).contains("angry")) {
+                    else if (list.get(i).contains("Love")) {
                         sum8 = sum8 +1;
-                        chartView.addOrReplace("Surprise", sum8);
+                        chartView.addOrReplace("Love", sum8);
                         //chartView.addOrReplace("Anger", sum8);
                     }
 
@@ -217,8 +217,8 @@ public class Statistics extends AppCompatActivity{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        System.out.print("AAAAAAAAAAAAAAAAAAAAAAAAA");
-System.out.print(sa.Sadness);
+        //System.out.print("AAAAAAAAAAAAAAAAAAAAAAAAA");
+//System.out.print(sa.Sadness);
 ///////////////////////////////////////////////////////////////////////////////////
             yData = new float[]{sa.Sadness,sa.Anxiety,sa.Shame,sa.Emptyness,sa.Loneliness,sa.Anger,sa.SelfRespect};
         //mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
@@ -439,7 +439,7 @@ System.out.print(sa.Sadness);
                 calendarInfo();
                 return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -453,6 +453,10 @@ System.out.print(sa.Sadness);
                 return super.onOptionsItemSelected(item);
         }
     }
+    private void takeNote() {
+        startActivity(new Intent(Statistics.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(Statistics.this,SendEmailActivity.class));
     }

@@ -94,7 +94,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "happy";
+                feeling = "Joy";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -102,7 +102,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "sad";
+                feeling = "Anger";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -110,7 +110,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "indifferent";
+                feeling = "Love";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -118,7 +118,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "confused";
+                feeling = "Disgust";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -126,7 +126,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "crying";
+                feeling = "Distress";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -134,7 +134,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "dizzy";
+                feeling = "Fear";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -142,7 +142,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "inlove";
+                feeling = "Surprise";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -150,7 +150,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "scared";
+                feeling = "Shame";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -158,7 +158,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         Smiley9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                feeling = "angry";
+                feeling = "Interest";
                 recordFeeling(feeling);
                 startActivity(new Intent(EnterValuesActivity.this, SelfHarmActivity.class));
             }
@@ -224,8 +224,11 @@ public class EnterValuesActivity extends AppCompatActivity{
             case R.id.action_calender:
                 calendarInfo();
                 return true;
+            case R.id.action_emergency:
+                emergencyInfo();
+                return true;
             case R.id.action_notes:
-                //TODO
+                takeNote();
                 return true;
             case R.id.action_sendEmail:
                 sendEmail();
@@ -239,6 +242,15 @@ public class EnterValuesActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void emergencyInfo() {
+        startActivity(new Intent(EnterValuesActivity.this,EmergencyActivity.class));
+    }
+
+    private void takeNote() {
+        startActivity(new Intent(EnterValuesActivity.this,NotesActivity.class));
+    }
+
     private void sendEmail() {
         startActivity(new Intent(EnterValuesActivity.this,SendEmailActivity.class));
     }

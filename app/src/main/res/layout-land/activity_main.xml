@@ -23,6 +23,10 @@
             android:id="@+id/appname_textview"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text"
             android:textAlignment="center" />
 
         <Space
@@ -34,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:id="@+id/create_account_btn"
-            android:background="@drawable/button"
+            android:background="@drawable/buttonblue"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:fontFamily="sans-serif"
             android:textStyle="normal|bold"
@@ -51,7 +55,7 @@
         <Button
             android:id="@+id/log_in_btn"
             android:text="@string/log_in_btn"
-            android:background="@drawable/button"
+            android:background="@drawable/buttonblue"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
