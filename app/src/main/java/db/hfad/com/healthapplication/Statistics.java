@@ -74,7 +74,7 @@ public class Statistics extends AppCompatActivity{
     StatisticsActivity sa = new StatisticsActivity();
 
 
-
+    public static float Anxiety;
     private PieChart mChart;
     // we're going to display pie chart for smartphones martket shares
     //private float[] yData = { 5, 10, 15, 30, 40 ,};
@@ -144,6 +144,7 @@ public class Statistics extends AppCompatActivity{
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("EnterValues")
                 .child(mCurrentUser.getUid())
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -217,9 +218,62 @@ public class Statistics extends AppCompatActivity{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        //System.out.print("AAAAAAAAAAAAAAAAAAAAAAAAA");
-//System.out.print(sa.Sadness);
-///////////////////////////////////////////////////////////////////////////////////
+
+  //NEW CHANGES //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      /*  mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
+                .child(mCurrentUser.getUid())
+                .child("Anxiety")
+                //.child("12");
+                .child("11");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                List<String> list = new ArrayList<String>();
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    list.add(String.valueOf(data.getValue())); //add result into array list
+                }
+                System.out.println(list);
+
+                int sum = 0;
+                float average = 0;
+
+                for (int i = 0; i < list.size(); i++) {
+                    sum = sum + Integer.parseInt(list.get(i));
+                    average = sum / list.size();
+                }
+
+                Anxiety = average;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             yData = new float[]{sa.Sadness,sa.Anxiety,sa.Shame,sa.Emptyness,sa.Loneliness,sa.Anger,sa.SelfRespect};
         //mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
         mChart = new PieChart(this);
@@ -270,6 +324,7 @@ public class Statistics extends AppCompatActivity{
         l.setXEntrySpace(7);
         l.setYEntrySpace(5);
     }
+
 
     private void addData() {
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();

@@ -23,8 +23,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -83,6 +86,13 @@ public class StatisticsActivity extends AppCompatActivity{
     public static float Anger;
     public  static float SelfRespect;
 
+    private DateFormat dateFormat;
+    private Date date;
+    private String currentDateTimeString;
+
+
+
+
 
 
 
@@ -90,6 +100,10 @@ public class StatisticsActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondstatistics);
+
+        dateFormat = new SimpleDateFormat("MM");
+        date = new Date();
+        currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
 
         TabHost th = (TabHost)findViewById(R.id.tabhostsecond);
 
@@ -143,7 +157,7 @@ public class StatisticsActivity extends AppCompatActivity{
         /*barEntriesAnxiety.add(new BarEntry(48f,0));
         barEntriesAnxiety.add(new BarEntry(25f,1));
         barEntriesAnxiety.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
+        barEntriesAnxiety.add(new BarEntry(100f,0));
         barEntriesAnxiety.add(new BarEntry(0f,1));
         barEntriesAnxiety.add(new BarEntry(0f,2));
         barEntriesAnxiety.add(new BarEntry(0f,4));
@@ -152,7 +166,7 @@ public class StatisticsActivity extends AppCompatActivity{
         barDataSetAnxiety = new BarDataSet(barEntriesAnxiety,"Months");
 
         theDates = new ArrayList<>();
-        theDates.add("August");
+        theDates.add("MaxScaleNumber");
         theDates.add("September");
         theDates.add("October");
         theDates.add("November");
@@ -171,6 +185,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Anxiety")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -211,9 +226,9 @@ public class StatisticsActivity extends AppCompatActivity{
         /*barEntriesShame.add(new BarEntry(48f,0));
         barEntriesShame.add(new BarEntry(25f,1));
         barEntriesShame.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
-        barEntriesAnxiety.add(new BarEntry(0f,1));
-        barEntriesAnxiety.add(new BarEntry(0f,2));
+        barEntriesShame.add(new BarEntry(100f,0));
+        barEntriesShame.add(new BarEntry(0f,1));
+        barEntriesShame.add(new BarEntry(0f,2));
         barEntriesShame.add(new BarEntry(0f,4));
         barEntriesShame.add(new BarEntry(0f,5));
 
@@ -231,6 +246,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Shame")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -270,9 +286,9 @@ public class StatisticsActivity extends AppCompatActivity{
         /*barEntriesEmptyness.add(new BarEntry(48f,0));
         barEntriesEmptyness.add(new BarEntry(25f,1));
         barEntriesEmptyness.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
-        barEntriesAnxiety.add(new BarEntry(0f,1));
-        barEntriesAnxiety.add(new BarEntry(0f,2));
+        barEntriesEmptyness.add(new BarEntry(100f,0));
+        barEntriesEmptyness.add(new BarEntry(0f,1));
+        barEntriesEmptyness.add(new BarEntry(0f,2));
         barEntriesEmptyness.add(new BarEntry(0f,4));
         barEntriesEmptyness.add(new BarEntry(0f,5));
 
@@ -290,6 +306,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Emptyness")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -327,9 +344,9 @@ public class StatisticsActivity extends AppCompatActivity{
         /*barEntriesAnger.add(new BarEntry(48f,0));
         barEntriesAnger.add(new BarEntry(25f,1));
         barEntriesAnger.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
-        barEntriesAnxiety.add(new BarEntry(0f,1));
-        barEntriesAnxiety.add(new BarEntry(0f,2));
+        barEntriesAnger.add(new BarEntry(100f,0));
+        barEntriesAnger.add(new BarEntry(0f,1));
+        barEntriesAnger.add(new BarEntry(0f,2));
         barEntriesAnger.add(new BarEntry(0f,4));
         barEntriesAnger.add(new BarEntry(0f,5));
 
@@ -347,6 +364,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Anger")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -385,9 +403,9 @@ public class StatisticsActivity extends AppCompatActivity{
        /* barEntriesSelfRespect.add(new BarEntry(48f,0));
         barEntriesSelfRespect.add(new BarEntry(25f,1));
         barEntriesSelfRespect.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
-        barEntriesAnxiety.add(new BarEntry(0f,1));
-        barEntriesAnxiety.add(new BarEntry(0f,2));
+        barEntriesSelfRespect.add(new BarEntry(100f,0));
+        barEntriesSelfRespect.add(new BarEntry(0f,1));
+        barEntriesSelfRespect.add(new BarEntry(0f,2));
         barEntriesSelfRespect.add(new BarEntry(0f,4));
         barEntriesSelfRespect.add(new BarEntry(0f,5));
 
@@ -405,6 +423,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Self-respect")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -444,9 +463,9 @@ public class StatisticsActivity extends AppCompatActivity{
        /*barEntriesSadness.add(new BarEntry(48f,0));
         barEntriesSadness.add(new BarEntry(25f,1));
         barEntriesSadness.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
-        barEntriesAnxiety.add(new BarEntry(0f,1));
-        barEntriesAnxiety.add(new BarEntry(0f,2));
+        barEntriesSadness.add(new BarEntry(100f,0));
+        barEntriesSadness.add(new BarEntry(0f,1));
+        barEntriesSadness.add(new BarEntry(0f,2));
         barEntriesSadness.add(new BarEntry(0f,4));
         barEntriesSadness.add(new BarEntry(0f,5));
 
@@ -464,6 +483,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Sadness")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -502,9 +522,9 @@ public class StatisticsActivity extends AppCompatActivity{
        /* barEntriesLoneliness.add(new BarEntry(48f,0));
         barEntriesLoneliness.add(new BarEntry(25f,1));
         barEntriesLoneliness.add(new BarEntry(66f,2));*/
-        barEntriesAnxiety.add(new BarEntry(0f,0));
-        barEntriesAnxiety.add(new BarEntry(0f,1));
-        barEntriesAnxiety.add(new BarEntry(0f,2));
+        barEntriesLoneliness.add(new BarEntry(100f,0));
+        barEntriesLoneliness.add(new BarEntry(0f,1));
+        barEntriesLoneliness.add(new BarEntry(0f,2));
         barEntriesLoneliness.add(new BarEntry(0f,4));
         barEntriesLoneliness.add(new BarEntry(0f,5));
 
@@ -522,6 +542,7 @@ public class StatisticsActivity extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings")
                 .child(mCurrentUser.getUid())
                 .child("Loneliness")
+                //.child("12");
                 .child("11");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override

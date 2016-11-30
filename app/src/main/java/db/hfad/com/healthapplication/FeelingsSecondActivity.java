@@ -61,7 +61,7 @@ public class FeelingsSecondActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feelingssecond);
 
-        gestureObject = new GestureDetectorCompat(this, new FeelingsSecondActivity.LearnGesture());
+        //gestureObject = new GestureDetectorCompat(this, new FeelingsSecondActivity.LearnGesture());
 
         database = FirebaseDatabase.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Feelings");
@@ -312,12 +312,12 @@ public class FeelingsSecondActivity extends AppCompatActivity{
         return sb.toString();
     }
 
-    @Override
+  /*  @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
-    }
-    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+    }*/
+  /*  class LearnGesture extends GestureDetector.SimpleOnGestureListener {
 
 
         @Override
@@ -341,6 +341,6 @@ public class FeelingsSecondActivity extends AppCompatActivity{
             return true;
 
         }
-    }
+    }*/
 
 }

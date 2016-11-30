@@ -72,7 +72,7 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drugsandalcohol);
 
-        gestureObject = new GestureDetectorCompat(this, new DrugsandAlcoholActivity.LearnGesture());
+        //gestureObject = new GestureDetectorCompat(this, new DrugsandAlcoholActivity.LearnGesture());
 
         database = FirebaseDatabase.getInstance();
         mDatabaseDrugsAlcohol = FirebaseDatabase.getInstance().getReference().child("DrugsAlcohol");
@@ -326,21 +326,21 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
         medicationQuantity.setVisibility(View.VISIBLE);
     }
 
-    @Override
+  /* @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
-    }
-    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+    }*/
+   /*   class LearnGesture extends GestureDetector.SimpleOnGestureListener {
 
 
-        @Override
+      @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                                float velocityX, float velocityY) {
             if(event2.getX() > event1.getX()){
-               /* Intent intent = new Intent(FeelingsSecondActivity.this,DrugsandAlcoholActivity.class);
-                finish();
-                startActivity(intent);*/
+               // Intent intent = new Intent(FeelingsSecondActivity.this,DrugsandAlcoholActivity.class);
+                //finish();
+                //startActivity(intent);
                 Intent intent = new Intent(DrugsandAlcoholActivity.this,FeelingsSecondActivity.class);
                 //finish();
                 startActivity(intent);
@@ -353,6 +353,6 @@ public class DrugsandAlcoholActivity extends AppCompatActivity {
             return true;
 
         }
-    }
+    }*/
 
 }

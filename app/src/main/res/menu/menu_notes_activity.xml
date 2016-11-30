@@ -12,6 +12,11 @@
         app:showAsAction="always"
         />
 
+    <item android:id="@+id/action_homepage"
+        android:icon="@drawable/homee"
+        android:title="Home"
+        app:showAsAction="ifRoom"/>
+
     <!-- SETTINGS
     <item
         android:enabled="true"

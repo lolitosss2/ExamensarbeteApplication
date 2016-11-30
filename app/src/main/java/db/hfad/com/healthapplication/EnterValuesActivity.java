@@ -63,7 +63,7 @@ public class EnterValuesActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entervalues);
 
-        gestureObject = new GestureDetectorCompat(this, new EnterValuesActivity.LearnGesture());
+       // gestureObject = new GestureDetectorCompat(this, new EnterValuesActivity.LearnGesture());
 
         database = FirebaseDatabase.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("EnterValues");
@@ -293,12 +293,12 @@ public class EnterValuesActivity extends AppCompatActivity{
         finish();
     }
 
-    @Override
+   /* @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
-    }
-    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+    }*/
+   /* class LearnGesture extends GestureDetector.SimpleOnGestureListener {
 
 
         @Override
@@ -319,6 +319,6 @@ public class EnterValuesActivity extends AppCompatActivity{
             return true;
 
         }
-    }
+    }*/
 
 }

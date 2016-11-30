@@ -61,7 +61,7 @@ public class SelfHarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selfharm);
 
-        gestureObject = new GestureDetectorCompat(this, new SelfHarmActivity.LearnGesture());
+        //gestureObject = new GestureDetectorCompat(this, new SelfHarmActivity.LearnGesture());
 
 
 
@@ -283,12 +283,12 @@ public class SelfHarmActivity extends AppCompatActivity {
         finish();
     }
 
-    @Override
+   /* @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
-    }
-    class LearnGesture extends GestureDetector.SimpleOnGestureListener {
+    }*/
+   /* class LearnGesture extends GestureDetector.SimpleOnGestureListener {
 
 
         @Override
@@ -312,7 +312,7 @@ public class SelfHarmActivity extends AppCompatActivity {
             return true;
 
         }
-    }
+    }*/
 
 }
 

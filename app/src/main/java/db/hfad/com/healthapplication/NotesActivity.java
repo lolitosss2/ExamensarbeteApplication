@@ -44,6 +44,9 @@ public class NotesActivity extends AppCompatActivity{
             case R.id.action_create: //run NoteActivity in new note mode
                 startActivity(new Intent(this, NoteActivity.class));
                 break;
+            case R.id.action_homepage:
+                startActivity(new Intent(this,HealthApp.class));
+                break;
 
             case R.id.action_settings:
                 //TODO show settings activity
